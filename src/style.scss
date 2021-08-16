@@ -1,0 +1,20 @@
+.main-container {
+    max-width: 90vw;
+    margin: 0 auto;
+}
+.listIcon {
+    max-width: 32px;
+    opacity: 0;
+    transition: opacity .1s;
+    cursor: pointer;
+    float: right;
+}
+.list__item:hover .listIcon {
+    opacity: 1;
+}
+.filters-container {
+    display: flex;
+}
+.tabs {
+    display: flex;
+}

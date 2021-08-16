@@ -1,0 +1,30 @@
+.main-container {
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.listIcon {
+  max-width: 32px;
+  opacity: 0;
+  -webkit-transition: opacity .1s;
+  transition: opacity .1s;
+  cursor: pointer;
+  float: right;
+}
+
+.list__item:hover .listIcon {
+  opacity: 1;
+}
+
+.filters-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=style.css.map */
