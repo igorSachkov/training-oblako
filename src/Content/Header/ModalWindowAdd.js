@@ -7,6 +7,7 @@ import addIcon from "./../../icons/add-icon.png"
 import ModalForm from './ModalForm';
 import { connect } from 'react-redux';
 import {addPlanningItem} from "./../../ReduxStore/planningReducer"
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -61,6 +62,6 @@ const ModalWindowAdd = (props) => {
       </Modal>
     </div>
   );
-}
+};
 
-export default connect(null, {addPlanningItem})(ModalWindowAdd)
+export default connect(null, {addPlanningItem})(ModalWindowAdd);

@@ -1,11 +1,4 @@
 import { Field, reduxForm } from 'redux-form'
-// import Grid from '@material-ui/core/Grid';
-// import DateFnsUtils from '@date-io/date-fns';
-// import {
-//   MuiPickersUtilsProvider,
-//   KeyboardTimePicker,
-//   KeyboardDatePicker,
-// } from '@material-ui/pickers';
 import React from 'react';
 import DatePicker from "react-widgets/DatePicker";
 import "react-widgets/styles.css";
@@ -88,8 +81,8 @@ const SimpleForm = props => {
       </div>
     </form>
   )
-}
+};
 
 export default reduxForm({
   form: 'simple' // a unique identifier for this form
-})(SimpleForm)
+})(SimpleForm);
