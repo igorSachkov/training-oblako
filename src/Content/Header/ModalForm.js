@@ -1,54 +1,45 @@
-import 'date-fns';
 import { Field, reduxForm } from 'redux-form'
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+// import Grid from '@material-ui/core/Grid';
+// import DateFnsUtils from '@date-io/date-fns';
+// import {
+//   MuiPickersUtilsProvider,
+//   KeyboardTimePicker,
+//   KeyboardDatePicker,
+// } from '@material-ui/pickers';
 import React from 'react';
-const DateFNS = () => {
-  const [selectedDate, setSelectedDate] = React.useState(new Date);
+import DatePicker from "react-widgets/DatePicker";
+import "react-widgets/styles.css";
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
+const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
+  
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justifyContent="space-around">
-        <KeyboardDatePicker
-          margin="normal"
-
-          id="date-picker-dialog"
-          label="Date picker dialog"
-          format="MM/dd/yyyy"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-      </Grid>
-    </MuiPickersUtilsProvider>
+    <DatePicker
+      onChange={onChange}
+      format="DD MMM YYYY"
+      // time={showTime}
+      value={!value ? null : new Date(value)}
+      placeholder={String(new Date)}
+    />
   )
 }
+
 
 const SimpleForm = props => {
 
   const { handleSubmit, pristine, reset, submitting } = props
 
-
-
-
   return (
     <form onSubmit={handleSubmit}>
 
-
-      <Field
-        name="date"
-        component={DateFNS}
+      <div>
+        <label>Дата</label>
+        <Field
+          name="date"
+          showTime={false}
+          component={renderDateTimePicker}
         />
+      </div>
+
 
       <div>
         <label>Название</label>

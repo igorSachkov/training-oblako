@@ -22,11 +22,11 @@ export const planningReducer = (state = initialStore, action) => {
         case deletePlanningItemConstant:
             return state.filter(item=> item.id != action.id)
         case addPlanningItemConstant:
-            return [...state, {id: 111, date: new Date("2021-12-23"), name: action.name, members: action.members, coach: action.coach, progress: 0}]
+            return [...state, {id: 111, date: action.date, name: action.name, members: action.members, coach: action.coach, progress: 0}]
         default:
             return state
     }
 }
 
 export const deletePlanningItem = (id) => ({ type: deletePlanningItemConstant, id})
-export const addPlanningItem = (name, members, coach) => ({ type: addPlanningItemConstant, name, members, coach})
+export const addPlanningItem = (name, members, coach, date) => ({ type: addPlanningItemConstant, name, members, coach, date})

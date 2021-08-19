@@ -5,13 +5,13 @@ import { store } from "./ReduxStore/ReduxStore"
 import { ModalWindowAdd } from "./Content/Header/ModalWindowAdd";
 import { connect, Provider } from "react-redux"
 // import MomentUtils from '@date-io/moment';
-import DateFnsUtils from '@date-io/date-fns';
+// import DateFnsUtils from '@date-io/date-fns';
 // import LuxonUtils from '@date-io/luxon';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+// import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 function App() {
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    
       <Provider store={store}>
 
         <Header />
@@ -20,7 +20,7 @@ function App() {
         </div>
 
       </Provider>
-    </MuiPickersUtilsProvider>
+    
 
 
   );
