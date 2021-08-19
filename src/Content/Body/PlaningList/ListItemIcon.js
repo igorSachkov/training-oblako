@@ -2,9 +2,9 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import listIcon from "./../../icons/list-item-icon.png"
-import deletePng from "./../../icons/Delete.png"
-import editPng from "./../../icons/Edit.png"
+import listIcon from "./../../../icons/list-item-icon.png"
+import deletePng from "./../../../icons/Delete.png"
+import editPng from "./../../../icons/Edit.png"
 
 const ListItemIcon = ({ deletePlanningItem, targetId }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
