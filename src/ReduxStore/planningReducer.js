@@ -1,3 +1,4 @@
+import uniqid from 'uniqid';
 const deletePlanningItemConstant = `DELETE-PLANNING-ITEM`
 const addPlanningItemConstant = `ADD-PLANNING-ITEM`
 
@@ -22,7 +23,7 @@ export const planningReducer = (state = initialStore, action) => {
         case deletePlanningItemConstant:
             return state.filter(item=> item.id != action.id)
         case addPlanningItemConstant:
-            return [...state, {id: 111, date: action.date, name: action.name, members: action.members, coach: action.coach, progress: 0}]
+            return [...state, {id: uniqid(), date: new Date(`${action.date.getFullYear()}-${action.date.getMonth()}-${action.date.getDate()}`), name: action.name, members: action.members, coach: action.coach, progress: 0}]
         default:
             return state
     }
