@@ -23,7 +23,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <div>{children}</div>
         </Box>
       )}
     </div>
@@ -83,8 +83,10 @@ export default function FullWidthTabs({items}) {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-        
+          
           <GroupPlanningBody items={items} />
+          
+          
           
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>

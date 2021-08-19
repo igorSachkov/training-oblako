@@ -3,6 +3,11 @@ import ListItemIcon from "./ListItemIcon";
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import { connect } from "react-redux"
+import {deletePlanningItem} from "./../ReduxStore/planningReducer"
+import { useState } from "react";
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const List = ({ items }) => {
+const List = ({ items, deletePlanningItem }) => {
     const classes = useStyles();
     return (
         <div>
@@ -46,7 +51,7 @@ const List = ({ items }) => {
             </div>
             <div>
                 {items.map((item, i) => {
-                    return (<div key={i} className="list__item">
+                    return (<div key={item.id} className="list__item">
                         <Grid container spacing={3} alignItems="center">
                             <Grid item xs={1}>
                                 {`${item.date.getDate()} ${item.date.getMonth()}`}
@@ -64,14 +69,23 @@ const List = ({ items }) => {
                                 {item.progress}
                             </Grid>
                             <Grid item xs={1}>
-                                <ListItemIcon />
+                                <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem}/>
                             </Grid>
                         </Grid>
                     </div>)
                 })}
+                
             </div>
         </div>
     )
 }
 
-export default List
+
+const mapStateToProps = (state) => {
+  
+    return {
+        items: state.planning
+    }
+  }
+
+export default connect(mapStateToProps, {deletePlanningItem})(List)

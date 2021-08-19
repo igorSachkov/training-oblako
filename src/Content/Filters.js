@@ -62,97 +62,101 @@ const Filters = () => {
 
 
     const classes = useStyles();
-    const [age, setAge] = React.useState('');
+    const [program, setProgram] = React.useState('');
+    const [period, setPeriod] = React.useState('');
+    const [status, setStatus] = React.useState('');
+    const handle = (set) => {
+        return function handleChange(event) {
+            set(event.target.value);
+        }
+    }
+    
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
 
 
     return (
         <div className="filters-container">
-            <div>
+            <div className="filters-container__search">
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
                         <SearchIcon />
                     </div>
                     <InputBase
-                        placeholder="Search…"
+                        placeholder="Поиск"
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,
                         }}
                         inputProps={{ 'aria-label': 'search' }}
                     />
+                    
                 </div>
             </div>
             <div>
                 <FormControl className={classes.formControl}>
                     <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                        Age
+                        Программа
                     </InputLabel>
                     <Select
                         labelId="demo-simple-select-placeholder-label-label"
                         id="demo-simple-select-placeholder-label"
-                        value={age}
-                        onChange={handleChange}
+                        value={program}
+                        onChange={handle(setProgram)}
                         displayEmpty
                         className={classes.selectEmpty}
                     >
                         <MenuItem value="">
-                            <em>None</em>
+                            <em>Все</em>
                         </MenuItem>
                         <MenuItem value={10}>Ten</MenuItem>
                         <MenuItem value={20}>Twenty</MenuItem>
                         <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
-                    <FormHelperText>Label + placeholder</FormHelperText>
+                    
                 </FormControl>
             </div>
             <div>
                 <FormControl className={classes.formControl}>
                     <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                        Age
+                        Период
                     </InputLabel>
                     <Select
                         labelId="demo-simple-select-placeholder-label-label"
                         id="demo-simple-select-placeholder-label"
-                        value={age}
-                        onChange={handleChange}
+                        value={period}
+                        onChange={handle(setPeriod)}
                         displayEmpty
                         className={classes.selectEmpty}
                     >
                         <MenuItem value="">
-                            <em>None</em>
+                            <em>Июнь 2019</em>
                         </MenuItem>
                         <MenuItem value={10}>Ten</MenuItem>
                         <MenuItem value={20}>Twenty</MenuItem>
                         <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
-                    <FormHelperText>Label + placeholder</FormHelperText>
                 </FormControl>
             </div>
             <div>
                 <FormControl className={classes.formControl}>
                     <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                        Age
+                        Статус
                     </InputLabel>
                     <Select
                         labelId="demo-simple-select-placeholder-label-label"
                         id="demo-simple-select-placeholder-label"
-                        value={age}
-                        onChange={handleChange}
+                        value={status}
+                        onChange={handle(setStatus)}
                         displayEmpty
                         className={classes.selectEmpty}
                     >
                         <MenuItem value="">
-                            <em>None</em>
+                            <em>Все</em>
                         </MenuItem>
                         <MenuItem value={10}>Ten</MenuItem>
                         <MenuItem value={20}>Twenty</MenuItem>
                         <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
-                    <FormHelperText>Label + placeholder</FormHelperText>
                 </FormControl>
             </div>
         </div>

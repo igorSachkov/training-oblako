@@ -5,9 +5,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import BreadCrump from './BreadCrump';
+import  ModalWindowAdd  from './ModalWindowAdd';
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -42,21 +43,13 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
-
-
           <BreadCrump />
-
-
-          
           <Typography className={classes.title} variant="h5" noWrap>
             Планирование
           </Typography>
-          <IconButton aria-label="search" color="inherit">
-            <SearchIcon />
-          </IconButton>
-          <IconButton aria-label="display more actions" edge="end" color="inherit">
-            <MoreIcon />
-          </IconButton>
+          <div className="add-planning">
+            <ModalWindowAdd />
+          </div>
         </Toolbar>
       </AppBar>
     </div>

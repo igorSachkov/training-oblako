@@ -6,7 +6,7 @@ import listIcon from "./../icons/list-item-icon.png"
 import deletePng from "./../icons/Delete.png"
 import editPng from "./../icons/Edit.png"
 
-export default function ListItemIcon() {
+export default function ListItemIcon({deletePlanningItem, targetId}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -15,6 +15,11 @@ export default function ListItemIcon() {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+    const handleCloseAndDelete = () => {
+        setAnchorEl(null);
+        deletePlanningItem(targetId)
+
     };
 
     return (
@@ -34,7 +39,7 @@ export default function ListItemIcon() {
                 transformOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
                 <MenuItem onClick={handleClose}><img src={editPng} />Редактировать</MenuItem>
-                <MenuItem onClick={handleClose}><img src={deletePng} /> Удалить слот</MenuItem>
+                <MenuItem onClick={handleCloseAndDelete}><img src={deletePng} /> Удалить слот</MenuItem>
 
             </Menu>
         </div>
