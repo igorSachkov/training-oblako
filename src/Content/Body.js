@@ -5,14 +5,10 @@ import FullWidthTabs from "./FullWidthTabs"
 import GroupPlanningBody from "./GroupPlanningBody"
 
 
-const Body = ({ items }) => {
+const Body = () => {
     return (
         <div>
-            <div>
-                <FullWidthTabs items={items}/>
-            </div>
-
-
+                <FullWidthTabs />
         </div>
     )
 }

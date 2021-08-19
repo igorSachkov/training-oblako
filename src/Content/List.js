@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { connect } from "react-redux"
 import {deletePlanningItem} from "./../ReduxStore/planningReducer"
 import { useState } from "react";
-
+import EditItemForm from "./EditItemForm";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -74,7 +74,8 @@ const List = ({ items, deletePlanningItem }) => {
                         </Grid>
                     </div>)
                 })}
-                
+
+                {/* <EditItemForm /> */}
             </div>
         </div>
     )
