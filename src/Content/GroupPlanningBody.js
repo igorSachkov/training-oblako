@@ -2,13 +2,13 @@ import List from "./List"
 import Filters from "./Filters"
 
 
-const GroupPlanningBody = ({items}) => {
+const GroupPlanningBody = () => {
     return (
         <div>
             <Filters />
-            <List items={items}/>
+            <List/>
         </div>
     )
-}
+};
 
-export default GroupPlanningBody
+export default GroupPlanningBody;

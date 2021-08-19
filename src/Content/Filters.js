@@ -2,12 +2,10 @@ import React from 'react';
 import { makeStyles, alpha } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import Toolbar from '@material-ui/core/Toolbar';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -60,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Filters = () => {
 
-
     const classes = useStyles();
     const [program, setProgram] = React.useState('');
     const [period, setPeriod] = React.useState('');
@@ -70,9 +67,6 @@ const Filters = () => {
             set(event.target.value);
         }
     }
-    
-
-
 
     return (
         <div className="filters-container">
@@ -89,7 +83,7 @@ const Filters = () => {
                         }}
                         inputProps={{ 'aria-label': 'search' }}
                     />
-                    
+
                 </div>
             </div>
             <div>
@@ -112,7 +106,7 @@ const Filters = () => {
                         <MenuItem value={20}>Twenty</MenuItem>
                         <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
-                    
+
                 </FormControl>
             </div>
             <div>
@@ -160,7 +154,7 @@ const Filters = () => {
                 </FormControl>
             </div>
         </div>
-
     )
-}
-export default Filters
+};
+
+export default Filters;

@@ -6,7 +6,7 @@ import listIcon from "./../icons/list-item-icon.png"
 import deletePng from "./../icons/Delete.png"
 import editPng from "./../icons/Edit.png"
 
-export default function ListItemIcon({deletePlanningItem, targetId}) {
+const ListItemIcon = ({ deletePlanningItem, targetId }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -19,7 +19,6 @@ export default function ListItemIcon({deletePlanningItem, targetId}) {
     const handleCloseAndDelete = () => {
         setAnchorEl(null);
         deletePlanningItem(targetId)
-
     };
 
     return (
@@ -27,11 +26,9 @@ export default function ListItemIcon({deletePlanningItem, targetId}) {
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                 <img src={listIcon} className="listIcon" />
             </Button>
-
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
-
                 keepMounted
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
@@ -40,10 +37,10 @@ export default function ListItemIcon({deletePlanningItem, targetId}) {
             >
                 <MenuItem onClick={handleClose}><img src={editPng} />Редактировать</MenuItem>
                 <MenuItem onClick={handleCloseAndDelete}><img src={deletePng} /> Удалить слот</MenuItem>
-
             </Menu>
         </div>
-    );
-}
+    )
+};
 
 
+export default ListItemIcon;
