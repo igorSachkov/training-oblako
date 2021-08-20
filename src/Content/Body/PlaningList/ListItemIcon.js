@@ -20,6 +20,10 @@ const ListItemIcon = ({ deletePlanningItem, targetId }) => {
         setAnchorEl(null);
         deletePlanningItem(targetId)
     };
+    const handleCloseAndEdit = () => {
+        setAnchorEl(null);
+        
+    };
 
     return (
         <div>
@@ -35,7 +39,7 @@ const ListItemIcon = ({ deletePlanningItem, targetId }) => {
                 anchorOrigin={{ vertical: "top", horizontal: "left" }}
                 transformOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-                <MenuItem onClick={handleClose}><img src={editPng} />Редактировать</MenuItem>
+                <MenuItem onClick={handleCloseAndEdit}><img src={editPng} />Редактировать</MenuItem>
                 <MenuItem onClick={handleCloseAndDelete}><img src={deletePng} /> Удалить слот</MenuItem>
             </Menu>
         </div>

@@ -47,7 +47,7 @@ export default function Header() {
           <Typography className={classes.title} variant="h5" noWrap>
             Планирование
           </Typography>
-          <div className="add-planning">
+          <div className="add-planning" >
             <ModalWindowAdd />
           </div>
         </Toolbar>
