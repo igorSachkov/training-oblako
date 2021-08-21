@@ -4,7 +4,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { connect } from "react-redux"
-import { deletePlanningItem } from "./../../../ReduxStore/planningReducer"
+import { deletePlanningItem, editPlanningItem } from "./../../../ReduxStore/planningReducer"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const List = ({ items, deletePlanningItem }) => {
+const List = ({ items, deletePlanningItem, editPlanningItem }) => {
     const classes = useStyles();
     return (
         <div>
@@ -62,7 +62,7 @@ const List = ({ items, deletePlanningItem }) => {
                                 {item.progress}
                             </Grid>
                             <Grid item xs={1}>
-                                <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} />
+                                <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} editPlanningItem={editPlanningItem} item={item}/>
                             </Grid>
                         </Grid>
                     </div>)
@@ -81,4 +81,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, { deletePlanningItem })(List);
+export default connect(mapStateToProps, { deletePlanningItem, editPlanningItem })(List);
