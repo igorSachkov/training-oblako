@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { connect } from "react-redux"
 import { deletePlanningItem, editPlanningItem } from "./../../../ReduxStore/planningReducer"
-
+import progressIcon from "./../../../icons/iconProgress.png"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -59,7 +59,10 @@ const List = ({ items, deletePlanningItem, editPlanningItem }) => {
                                 {item.coach}
                             </Grid>
                             <Grid item xs={1}>
-                                {item.progress}
+                            <div>
+                                <img src={progressIcon} /> {item.progress} %
+                            </div>
+                                
                             </Grid>
                             <Grid item xs={1}>
                                 <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} editPlanningItem={editPlanningItem} item={item}/>

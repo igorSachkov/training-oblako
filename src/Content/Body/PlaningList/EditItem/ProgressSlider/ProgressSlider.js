@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Input from '@material-ui/core/Input';
-
+import progressIcon from "./../../../../../icons/iconProgress.png"
 const useStyles = makeStyles({
   root: {
     width: 250,
@@ -43,9 +43,9 @@ export default function ProgressSlider({progress, reduxProgress, setProgress, va
         Прогресс
       </Typography>
       <Grid container spacing={2} alignItems="center">
-        {/* <Grid item>
-          <img src={progressPNG} className="progress-icon"/>
-        </Grid> */}
+        <Grid item>
+          <img src={progressIcon} />
+        </Grid>
         <Grid item xs>
           <Slider
             value={typeof value === 'number' ? value : 0}
