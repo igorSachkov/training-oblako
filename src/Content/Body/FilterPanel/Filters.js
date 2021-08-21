@@ -6,6 +6,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import { connect } from 'react-redux';
+import { filterByAlphabetItemsAZ, filterByAlphabetItemsZA } from '../../../ReduxStore/planningReducer';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -56,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Filters = () => {
+const Filters = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA}) => {
+    
 
     const classes = useStyles();
     const [program, setProgram] = React.useState('');
@@ -102,9 +105,9 @@ const Filters = () => {
                         <MenuItem value="">
                             <em>Все</em>
                         </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={"a-z"}><div onClick={filterByAlphabetItemsAZ}>По алфавиту</div></MenuItem>
+                        <MenuItem value={"z-a"}><div onClick={filterByAlphabetItemsZA}>В обратном порядке</div></MenuItem>
+                        
                     </Select>
 
                 </FormControl>
@@ -157,4 +160,4 @@ const Filters = () => {
     )
 };
 
-export default Filters;
+export default connect(null, {filterByAlphabetItemsAZ, filterByAlphabetItemsZA})(Filters);

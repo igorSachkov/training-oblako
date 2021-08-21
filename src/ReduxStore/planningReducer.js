@@ -2,6 +2,11 @@ import uniqid from 'uniqid';
 const deletePlanningItemConstant = `DELETE-PLANNING-ITEM`
 const addPlanningItemConstant = `ADD-PLANNING-ITEM`
 const editPlanningItemConstant = `EDIT-PLANNING-ITEM`
+const filterByAlphabetItemsConstantAZ = `FILTER-BY-ALPHABET-A-Z`
+const filterByAlphabetItemsConstantZA = `FILTER-BY-ALPHABET-Z-A`
+
+
+
 
 let initialStore = [
     { id: 101, date: new Date("2021-12-23"), name: "Страхование с заботой о клиенте", members: 12, coach: "", progress: 91 },
@@ -25,13 +30,25 @@ export const planningReducer = (state = initialStore, action) => {
             return state.filter(item => item.id != action.id)
         case addPlanningItemConstant:
             return [...state, { id: uniqid(), date: new Date(`${action.date.getFullYear()}-${action.date.getMonth()}-${action.date.getDate()}`), name: action.name, members: action.members, coach: action.coach, progress: 0 }]
-        case editPlanningItemConstant: return state.map(function (e) {
+        case editPlanningItemConstant:
+            return state.map(function (e) {
                 if (e.id == action.id) {
-                    return { id: e.id, date: e.date, name: action.name, members: action.members, coach: action.coach, progress: e.progress }
+                    return { id: e.id, date: e.date, name: action.name, members: action.members, coach: action.coach, progress: action.progress }
                 } else {
-                    
                     return e
-                } 
+                }
+            })
+        case filterByAlphabetItemsConstantAZ:
+            return [...state].sort(function (a, b) {
+                if (a.name > b.name) {
+                    return 1
+                } else return - 1
+            })
+        case filterByAlphabetItemsConstantZA:
+            return [...state].sort(function (a, b) {
+                if (a.name > b.name) {
+                    return -1
+                } else return 1
             })
         default:
             return state
@@ -40,4 +57,6 @@ export const planningReducer = (state = initialStore, action) => {
 
 export const deletePlanningItem = (id) => ({ type: deletePlanningItemConstant, id })
 export const addPlanningItem = (name, members, coach, date) => ({ type: addPlanningItemConstant, name, members, coach, date })
-export const editPlanningItem = (id, name, members, coach) => ({ type: editPlanningItemConstant, id, name, members, coach })
+export const editPlanningItem = (id, name, members, coach, progress) => ({ type: editPlanningItemConstant, id, name, members, coach, progress })
+export const filterByAlphabetItemsAZ = () => ({ type: filterByAlphabetItemsConstantAZ })
+export const filterByAlphabetItemsZA = () => ({ type: filterByAlphabetItemsConstantZA })

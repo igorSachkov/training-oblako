@@ -5,6 +5,9 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import ModalForm from './ModalForm';
 import editPng from "./../../../../icons/Edit.png"
+import { useState } from 'react';
+
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -20,9 +23,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ModalWindowEdit = ({editPlanningItem, item}) => {
+  
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
+  const [progress, setProgress] = useState(item.progress);
   const handleOpen = () => {
     setOpen(true);
   };
@@ -30,14 +34,14 @@ const ModalWindowEdit = ({editPlanningItem, item}) => {
     setOpen(false);
   };
   const handleSubmit = ({name, members, coach})=> {
-    debugger
-    editPlanningItem(item.id, name, members, coach)
+    
+    editPlanningItem(item.id, name, members, coach, progress)
     
   }
 
   return (
     <div>
-      <div onClick={handleOpen}>
+      <div className="edit-item__edit" onClick={handleOpen}>
       <img src={editPng} />Редактировать
       </div>
       <Modal
@@ -54,7 +58,7 @@ const ModalWindowEdit = ({editPlanningItem, item}) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <ModalForm onSubmit={handleSubmit} item={item}/>
+            <ModalForm onSubmit={handleSubmit} item={item} setProgress={setProgress} progress={progress}/>
           </div>
         </Fade>
       </Modal>

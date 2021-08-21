@@ -2,6 +2,9 @@ import { Field, reduxForm } from 'redux-form'
 import React from 'react';
 import DatePicker from "react-widgets/DatePicker";
 import "react-widgets/styles.css";
+import ProgressSlider from './ProgressSlider/ProgressSlider';
+
+
 
 const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
   
@@ -17,10 +20,10 @@ const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
 }
 
 
-const SimpleForm = (props) => {
+const SimpleForm = (props, ) => {
   
 
-  const { handleSubmit, pristine, reset, submitting } = props
+  const { handleSubmit, pristine, reset, submitting, setProgress, progress } = props
   const { name, members } = props.item
 
   return (
@@ -71,6 +74,10 @@ const SimpleForm = (props) => {
             <option value="Usuf">Юсуф</option>
           </Field>
         </div>
+      </div>
+
+      <div>
+        <ProgressSlider progress={progress} setProgress={setProgress}/>
       </div>
 
       <div>
