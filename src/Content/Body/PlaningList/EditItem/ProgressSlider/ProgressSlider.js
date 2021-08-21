@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Input from '@material-ui/core/Input';
-import progressPNG from "./../../../../../icons/progress.png"
 
 const useStyles = makeStyles({
   root: {
@@ -15,16 +14,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ProgressSlider({progress, setProgress}) {
+export default function ProgressSlider({progress, reduxProgress, setProgress, value, setValue}) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(progress);
-
+  
+  
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
     setProgress(newValue)
   };
 
   const handleInputChange = (event) => {
+    
     setValue(event.target.value === '' ? '' : Number(event.target.value));
     
   };
@@ -61,7 +61,7 @@ export default function ProgressSlider({progress, setProgress}) {
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
-              step: 10,
+              step: 1,
               min: 0,
               max: 100,
               type: 'number',
