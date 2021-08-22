@@ -95,10 +95,27 @@
   font-size: 57px;
   font-weight: bold;
   letter-spacing: 1.1px;
+  margin-left: 62px;
 }
 
 .header-title img {
   max-width: 40px;
   margin-right: 13px;
+}
+
+.bread-crump {
+  padding-top: 26px;
+  padding-left: 62px;
+}
+
+.bread-crump a {
+  font-size: 18px;
+  margin-right: 6px;
+}
+
+.bread-crump p {
+  font-size: 18px;
+  letter-spacing: 1.45px;
+  margin-left: 6.5px;
 }
 /*# sourceMappingURL=style.css.map */
