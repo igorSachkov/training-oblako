@@ -22,7 +22,7 @@ const BreadCrump = () => {
     const classes = useStyles();
 
     return (
-        <Breadcrumbs separator="-" aria-label="breadcrumb">
+        <Breadcrumbs separator="—" aria-label="breadcrumb">
             <Link color="inherit" href="/" onClick={handleClick}>
                 Главная
             </Link>

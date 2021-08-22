@@ -6,13 +6,14 @@ import "react-widgets/styles.css";
 const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
   
   return (
-    <DatePicker
-      onChange={onChange}
-      format="DD MMM YYYY"
-      // time={showTime}
-      value={!value ? null : new Date(value)}
-      placeholder={String(new Date)}
-    />
+    // <DatePicker
+    //   onChange={onChange}
+    //   format="DD MMM YYYY"
+    //   // time={showTime}
+    //   value={!value ? null : new Date(value)}
+    //   placeholder={String(new Date)}
+    // />
+    <DatePicker defaultValue={new Date()} includeTime />
   )
 }
 

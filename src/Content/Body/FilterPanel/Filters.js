@@ -105,8 +105,8 @@ const Filters = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA}) => {
                         <MenuItem value="">
                             <em>Все</em>
                         </MenuItem>
-                        <MenuItem value={"a-z"}><div onClick={filterByAlphabetItemsAZ}>По алфавиту</div></MenuItem>
-                        <MenuItem value={"z-a"}><div onClick={filterByAlphabetItemsZA}>В обратном порядке</div></MenuItem>
+                        <MenuItem onClick={filterByAlphabetItemsAZ} value={"a-z"}>По алфавиту</MenuItem>
+                        <MenuItem onClick={filterByAlphabetItemsZA} value={"z-a"}>В обратном порядке</MenuItem>
                         
                     </Select>
 

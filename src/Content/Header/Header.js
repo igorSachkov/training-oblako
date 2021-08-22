@@ -7,25 +7,38 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import BreadCrump from './BreadCrump';
 import  ModalWindowAdd  from './ModalWindowAdd';
+import hamburgerButton from "./../../icons/hamburger-button.png"
+import planning from "./../../icons/Planning.png"
+
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+  // menuButton: {
+  //   marginRight: theme.spacing(2),
+  // },
   toolbar: {
     minHeight: 220,
     alignItems: 'flex-start',
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(2),
+    paddingTop: 26,
+    paddingLeft: 40
   },
   title: {
     flexGrow: 1,
     alignSelf: 'flex-end',
+    fontWeight: 1000,
+    fontSize: 55,
+    letterSpacing: 2.3,
+    
   },
+  hamburger: {
+    // fontSize: 36,
+    color: "grey",
+    width: 23,
+    
+  }
 }));
 
 export default function Header() {
@@ -41,11 +54,19 @@ export default function Header() {
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+            <img src={hamburgerButton} className={classes.hamburger}/>
+            
           </IconButton>
+          <div className="bread-crump">
           <BreadCrump />
-          <Typography className={classes.title} variant="h5" noWrap>
-            Планирование
+          </div>
+          
+          <Typography className={classes.title} noWrap>
+          <div className="header-title">
+          <img src={planning}/> Планирование
+          </div>
+
+           
           </Typography>
           <div className="add-planning" >
             <ModalWindowAdd />

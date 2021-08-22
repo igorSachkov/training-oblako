@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const List = ({ items, deletePlanningItem, editPlanningItem }) => {
     const classes = useStyles();
     return (
-        <div>
+        <div >
             <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid item xs={1}>
@@ -42,7 +42,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem }) => {
                     <Grid item xs={1}></Grid>
                 </Grid>
             </div>
-            <div>
+            <div className="items-container">
                 {items.map((item, i) => {
                     return (<div key={item.id} className="list__item">
                         <Grid container spacing={3} alignItems="center">
