@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: theme.palette.background.paper,
     },
+    
 }));
 
 const Body = () => {
@@ -65,8 +66,8 @@ const Body = () => {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="default">
-                <Tabs
+            <div className="body-tabs">
+            <Tabs
                     value={value}
                     onChange={handleChange}
                     indicatorColor="primary"
@@ -76,7 +77,9 @@ const Body = () => {
                     <Tab label="Групповое" {...a11yProps(0)} />
                     <Tab label="Индивидуальное" {...a11yProps(1)} />
                 </Tabs>
-            </AppBar>
+            </div>
+
+            
             <SwipeableViews
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={value}
