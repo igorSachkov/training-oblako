@@ -46,6 +46,20 @@
   cursor: pointer;
   padding: 5px;
   border-radius: 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  float: right;
+  color: #1071FF;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 3px;
+  margin-right: 4px;
+}
+
+.add-planning__item img {
+  margin-right: 19px;
+  max-width: 17px;
 }
 
 .add-planning:hover {
@@ -65,23 +79,22 @@
   overflow-x: hidden;
 }
 
-.bread-crump {
-  position: relative;
-  top: 95px;
-  left: 25px;
+.header-container {
+  padding: 30px 40px 0px;
 }
 
-.bread-crump a {
-  font-size: 18px;
-}
-
-.bread-crump p {
-  font-size: 18px;
-  letter-spacing: 1.2px;
+.hamburger-icon {
+  width: 27px;
+  -webkit-box-shadow: 0px 6px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 6px 8px 0px rgba(34, 60, 80, 0.2);
+  margin-top: -4px;
 }
 
 .header-title {
   color: black;
+  font-size: 57px;
+  font-weight: bold;
+  letter-spacing: 1.1px;
 }
 
 .header-title img {

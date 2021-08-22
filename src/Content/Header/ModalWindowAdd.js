@@ -39,7 +39,7 @@ const ModalWindowAdd = (props) => {
 
   return (
     <div>
-      <div onClick={handleOpen}>
+      <div onClick={handleOpen} className="add-planning__item">
         <img src={addIcon} />Запланировать
       </div>
       <Modal
