@@ -6,6 +6,22 @@ import Grid from '@material-ui/core/Grid';
 import { connect } from "react-redux"
 import { deletePlanningItem, editPlanningItem } from "./../../../ReduxStore/planningReducer"
 import progressIcon from "./../../../icons/iconProgress.png"
+const monthArray = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Ноябрь',
+    'Декабрь',
+];
+const showDate = (date, month) => {
+    return `${date.getDate()} ${monthArray[month.getMonth() - 1].substr(0, 3).toLowerCase()}`
+}
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +63,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem }) => {
                     return (<div key={item.id} className="list__item">
                         <Grid container spacing={3} alignItems="center">
                             <Grid item xs={1}>
-                                {`${item.date.getDate()} ${item.date.getMonth()}`}
+                                {`${showDate(item.date ,item.date)}`}
                             </Grid>
                             <Grid item xs={5}>
                                 {item.name}
@@ -59,13 +75,13 @@ const List = ({ items, deletePlanningItem, editPlanningItem }) => {
                                 {item.coach}
                             </Grid>
                             <Grid item xs={1}>
-                            <div>
-                                <img src={progressIcon} /> {item.progress} %
-                            </div>
-                                
+                                <div>
+                                    <img src={progressIcon} /> {item.progress} %
+                                </div>
+
                             </Grid>
                             <Grid item xs={1}>
-                                <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} editPlanningItem={editPlanningItem} item={item}/>
+                                <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} editPlanningItem={editPlanningItem} item={item} />
                             </Grid>
                         </Grid>
                     </div>)
