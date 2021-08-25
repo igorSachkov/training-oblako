@@ -33,8 +33,8 @@ const ModalWindowAdd = (props) => {
     setOpen(false);
   };
   const handleSubmit = (event)=> {
-    props.addPlanningItem(event.name, event.members, event.coach, event.date)
-    console.log(event.date.getMonth())
+    props.addPlanningItem(event.name, event.members, event.coach, event.date.getTime())
+    console.log(event.date.getTime());
   }
 
   return (

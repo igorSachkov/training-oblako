@@ -16,11 +16,15 @@ const monthArray = [
     'Июль',
     'Август',
     'Сентябрь',
+    'Октябрь',
     'Ноябрь',
     'Декабрь',
 ];
-const showDate = (date, month) => {
-    return `${date.getDate()} ${monthArray[month.getMonth() - 1].substr(0, 3).toLowerCase()}`
+const showDate = (date) => {
+    let outDate = new Date(date)
+    let minutes = `${outDate.getMinutes()}`
+    if(minutes.length === 1) minutes = `0${minutes}`
+    return `${outDate.getDate()} ${monthArray[outDate.getMonth()].substring(0, 3).toLowerCase()} ${outDate.getHours()}:${minutes}`
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +67,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem }) => {
                     return (<div key={item.id} className="list__item">
                         <Grid container spacing={3} alignItems="center">
                             <Grid item xs={1}>
-                                {`${showDate(item.date ,item.date)}`}
+                                {showDate(item.date)}
                             </Grid>
                             <Grid item xs={5}>
                                 {item.name}
