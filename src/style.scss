@@ -18,11 +18,37 @@
   opacity: 1;
 }
 .filters-container {
-  display: flex;
-  &__search {
+  font-size: 20px;
+  margin-top: 50px;
+  &__top {
     display: flex;
-    align-items: flex-end;
+    &__search {
+      display: flex;
+      align-items: flex-end;
+    }
   }
+  &__bottom {
+    display: flex;
+    .filter-settings {
+      margin-left: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #1071FF;
+      img {
+        max-width: 20px;
+        vertical-align: middle;
+        margin-right: 17px;
+      }
+    }
+    .clear {
+      img {
+        max-width: 15px;
+        vertical-align: middle;
+        margin-right: 17px;
+      }
+    }
+  }
+
 }
 .tabs {
   display: flex;

@@ -8,6 +8,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { connect } from 'react-redux';
 import { filterByAlphabetItemsAZ, filterByAlphabetItemsZA } from '../../../ReduxStore/planningReducer';
+import { useEffect } from 'react';
+import filterSettings from "./../../../icons/filter-settings.png"
+import clear from "./../../../icons/clear.png"
+
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -58,13 +62,20 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Filters = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA}) => {
+const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, items }) => {
     
+
 
     const classes = useStyles();
     const [program, setProgram] = React.useState('');
     const [period, setPeriod] = React.useState('');
     const [status, setStatus] = React.useState('');
+
+    const [itemsLength, setItemsLength] = React.useState(items.length);
+
+    useEffect(() => {
+        setItemsLength(items.length)
+    }, [items]);
     const handle = (set) => {
         return function handleChange(event) {
             set(event.target.value);
@@ -73,91 +84,105 @@ const Filters = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA}) => {
 
     return (
         <div className="filters-container">
-            <div className="filters-container__search">
-                <div className={classes.search}>
-                    <div className={classes.searchIcon}>
-                        <SearchIcon />
-                    </div>
-                    <InputBase
-                        placeholder="Поиск"
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
+            <div className="filters-container__top">
+                <div className="filters-container__search">
+                    <div className={classes.search}>
+                        <div className={classes.searchIcon}>
+                            <SearchIcon />
+                        </div>
+                        <InputBase
+                            placeholder="Поиск"
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
 
+                    </div>
+                </div>
+                <div>
+                    <FormControl className={classes.formControl}>
+                        <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                            Программа
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-placeholder-label-label"
+                            id="demo-simple-select-placeholder-label"
+                            value={program}
+                            onChange={handle(setProgram)}
+                            displayEmpty
+                            className={classes.selectEmpty}
+                        >
+                            <MenuItem value="">
+                                <em>Все</em>
+                            </MenuItem>
+                            <MenuItem onClick={filterByAlphabetItemsAZ} value={"a-z"}>По алфавиту</MenuItem>
+                            <MenuItem onClick={filterByAlphabetItemsZA} value={"z-a"}>В обратном порядке</MenuItem>
+
+                        </Select>
+
+                    </FormControl>
+                </div>
+                <div>
+                    <FormControl className={classes.formControl}>
+                        <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                            Период
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-placeholder-label-label"
+                            id="demo-simple-select-placeholder-label"
+                            value={period}
+                            onChange={handle(setPeriod)}
+                            displayEmpty
+                            className={classes.selectEmpty}
+                        >
+                            <MenuItem value="">
+                                <em>Июнь 2019</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                        </Select>
+                    </FormControl>
+                </div>
+                <div>
+                    <FormControl className={classes.formControl}>
+                        <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                            Статус
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-placeholder-label-label"
+                            id="demo-simple-select-placeholder-label"
+                            value={status}
+                            onChange={handle(setStatus)}
+                            displayEmpty
+                            className={classes.selectEmpty}
+                        >
+                            <MenuItem value="">
+                                <em>Все</em>
+                            </MenuItem>
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                        </Select>
+                    </FormControl>
                 </div>
             </div>
-            <div>
-                <FormControl className={classes.formControl}>
-                    <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                        Программа
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-placeholder-label-label"
-                        id="demo-simple-select-placeholder-label"
-                        value={program}
-                        onChange={handle(setProgram)}
-                        displayEmpty
-                        className={classes.selectEmpty}
-                    >
-                        <MenuItem value="">
-                            <em>Все</em>
-                        </MenuItem>
-                        <MenuItem onClick={filterByAlphabetItemsAZ} value={"a-z"}>По алфавиту</MenuItem>
-                        <MenuItem onClick={filterByAlphabetItemsZA} value={"z-a"}>В обратном порядке</MenuItem>
-                        
-                    </Select>
-
-                </FormControl>
-            </div>
-            <div>
-                <FormControl className={classes.formControl}>
-                    <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                        Период
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-placeholder-label-label"
-                        id="demo-simple-select-placeholder-label"
-                        value={period}
-                        onChange={handle(setPeriod)}
-                        displayEmpty
-                        className={classes.selectEmpty}
-                    >
-                        <MenuItem value="">
-                            <em>Июнь 2019</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
-            <div>
-                <FormControl className={classes.formControl}>
-                    <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                        Статус
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-placeholder-label-label"
-                        id="demo-simple-select-placeholder-label"
-                        value={status}
-                        onChange={handle(setStatus)}
-                        displayEmpty
-                        className={classes.selectEmpty}
-                    >
-                        <MenuItem value="">
-                            <em>Все</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                </FormControl>
+            <div className="filters-container__bottom">
+                <div>{itemsLength} сессии</div>
+                <div className="filter-settings"><img src={filterSettings} />Настроить фильтр</div>
+                <div className="clear"><img src={clear} />Сбросить</div>
             </div>
         </div>
     )
 };
 
-export default connect(null, {filterByAlphabetItemsAZ, filterByAlphabetItemsZA})(Filters);
+const mapStateToProps = (state) => {
+    return {
+        items: state.planning
+    }
+
+}
+
+export default connect(mapStateToProps, { filterByAlphabetItemsAZ, filterByAlphabetItemsZA })(Filters);
