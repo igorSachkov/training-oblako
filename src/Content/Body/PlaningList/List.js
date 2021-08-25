@@ -6,20 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { connect } from "react-redux"
 import { deletePlanningItem, editPlanningItem } from "./../../../ReduxStore/planningReducer"
 import progressIcon from "./../../../icons/iconProgress.png"
-const monthArray = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
-];
+import { monthArray } from "../../Common/Dates";
 const showDate = (date) => {
     let outDate = new Date(date)
     let minutes = `${outDate.getMinutes()}`

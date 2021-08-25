@@ -11,8 +11,8 @@ import { filterByAlphabetItemsAZ, filterByAlphabetItemsZA } from '../../../Redux
 import { useEffect } from 'react';
 import filterSettings from "./../../../icons/filter-settings.png"
 import clear from "./../../../icons/clear.png"
-
-
+import FilterByAlphabet from './FilterByAlphabet';
+import FilterByDate from './FilterByDate';
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -67,9 +67,23 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, items }) =>
 
 
     const classes = useStyles();
-    const [program, setProgram] = React.useState('');
-    const [period, setPeriod] = React.useState('');
+    
+    
     const [status, setStatus] = React.useState('');
+    
+
+
+
+    const filterDateList = (list) => {
+        const uniqueDates = [...list.map(e=> e.date).sort((a, b)=> b - a)]
+        const result = [...new Set(uniqueDates)]
+        return result
+    }
+    const [dateList, setDateList] = React.useState(filterDateList(items));
+    
+    useEffect(() => {
+        setDateList(filterDateList(items))
+    }, [items]);
 
     const [itemsLength, setItemsLength] = React.useState(items.length);
 
@@ -101,51 +115,8 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, items }) =>
 
                     </div>
                 </div>
-                <div>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                            Программа
-                        </InputLabel>
-                        <Select
-                            labelId="demo-simple-select-placeholder-label-label"
-                            id="demo-simple-select-placeholder-label"
-                            value={program}
-                            onChange={handle(setProgram)}
-                            displayEmpty
-                            className={classes.selectEmpty}
-                        >
-                            <MenuItem value="">
-                                <em>Все</em>
-                            </MenuItem>
-                            <MenuItem onClick={filterByAlphabetItemsAZ} value={"a-z"}>По алфавиту</MenuItem>
-                            <MenuItem onClick={filterByAlphabetItemsZA} value={"z-a"}>В обратном порядке</MenuItem>
-
-                        </Select>
-
-                    </FormControl>
-                </div>
-                <div>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                            Период
-                        </InputLabel>
-                        <Select
-                            labelId="demo-simple-select-placeholder-label-label"
-                            id="demo-simple-select-placeholder-label"
-                            value={period}
-                            onChange={handle(setPeriod)}
-                            displayEmpty
-                            className={classes.selectEmpty}
-                        >
-                            <MenuItem value="">
-                                <em>Июнь 2019</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
-                        </Select>
-                    </FormControl>
-                </div>
+                <FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} />
+                <FilterByDate dateList={dateList}/>
                 <div>
                     <FormControl className={classes.formControl}>
                         <InputLabel shrink id="demo-simple-select-placeholder-label-label">
@@ -179,6 +150,7 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, items }) =>
 };
 
 const mapStateToProps = (state) => {
+    
     return {
         items: state.planning
     }
