@@ -33,9 +33,10 @@ const ModalWindowEdit = ({editPlanningItem, item}) => {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleSubmit = ({name, members, coach})=> {
+  const handleSubmit = (props, {name, members, coach})=> {
+    const date = props.date.getTime()
     
-    editPlanningItem(item.id, name, members, coach, progress)
+    editPlanningItem(item.id, name, members, coach, progress, date)
     
   }
 

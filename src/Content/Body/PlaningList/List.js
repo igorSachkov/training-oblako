@@ -8,10 +8,10 @@ import { deletePlanningItem, editPlanningItem } from "./../../../ReduxStore/plan
 import progressIcon from "./../../../icons/iconProgress.png"
 import { monthArray } from "../../Common/Dates";
 const showDate = (date) => {
-    let outDate = new Date(date)
-    let minutes = `${outDate.getMinutes()}`
+    // let outDate = new Date(date)
+    let minutes = `${date.getMinutes()}`
     if(minutes.length === 1) minutes = `0${minutes}`
-    return `${outDate.getDate()} ${monthArray[outDate.getMonth()].substring(0, 3).toLowerCase()} ${outDate.getHours()}:${minutes}`
+    return `${date.getDate()} ${monthArray[date.getMonth()].substring(0, 3).toLowerCase()} ${date.getHours()}:${minutes}`
 }
 
 const useStyles = makeStyles((theme) => ({

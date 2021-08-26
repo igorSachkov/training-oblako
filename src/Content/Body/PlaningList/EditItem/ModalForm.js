@@ -13,19 +13,23 @@ const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
       onChange={onChange}
       format="DD MMM YYYY"
       // time={showTime}
+
       value={!value ? null : new Date(value)}
       placeholder={String(new Date)}
+      includeTime
+
     />
+
   )
 }
 
 
-const SimpleForm = (props ) => {
-  
+const SimpleForm = (props) => {
+
 
   const { handleSubmit, pristine, reset, submitting, setProgress, progress } = props
   const { name, members } = props.item
-  
+
   const [value, setValue] = React.useState(props.item.progress);
 
   const resetEditModal = () => {
@@ -43,6 +47,7 @@ const SimpleForm = (props ) => {
           name="date"
           showTime={false}
           component={renderDateTimePicker}
+          
         />
       </div>
 
@@ -85,7 +90,7 @@ const SimpleForm = (props ) => {
       </div>
 
       <div>
-        <ProgressSlider setProgress={setProgress} value={value} setValue={setValue}/>
+        <ProgressSlider setProgress={setProgress} value={value} setValue={setValue} />
       </div>
 
       <div>

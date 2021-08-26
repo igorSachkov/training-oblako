@@ -19,7 +19,6 @@ const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
     
   )
 }
-{/* <DatePicker defaultValue={new Date()} includeTime /> */}
 
 const SimpleForm = props => {
 

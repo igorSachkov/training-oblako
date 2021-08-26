@@ -75,14 +75,19 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, items }) =>
 
 
     const filterDateList = (list) => {
-        const uniqueDates = [...list.map(e=> e.date).sort((a, b)=> b - a)]
-        const result = [...new Set(uniqueDates)]
+        const uniqueDates = [...list.map(e=> `${e.date.getFullYear()}${e.date.getMonth()}`)]
+        const result = [...new Set(uniqueDates)].sort((a, b)=> {
+            
+            return Number(b) - Number(a)})
+        
         return result
     }
+    
     const [dateList, setDateList] = React.useState(filterDateList(items));
     
     useEffect(() => {
         setDateList(filterDateList(items))
+        console.log("useEffect")
     }, [items]);
 
     const [itemsLength, setItemsLength] = React.useState(items.length);
