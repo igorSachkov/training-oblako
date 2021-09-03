@@ -7,7 +7,7 @@ import Select from '@material-ui/core/Select';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { connect } from 'react-redux';
-import { filterByAlphabetItemsAZ, filterByAlphabetItemsZA } from '../../../ReduxStore/planningReducer';
+import { filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate } from '../../../ReduxStore/planningReducer';
 import { useEffect } from 'react';
 import filterSettings from "./../../../icons/filter-settings.png"
 import clear from "./../../../icons/clear.png"
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, items }) => {
+const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items }) => {
     
 
 
@@ -121,7 +121,7 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, items }) =>
                     </div>
                 </div>
                 <FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} />
-                <FilterByDate dateList={dateList}/>
+                <FilterByDate dateList={dateList} filterByDate={filterByDate}/>
                 <div>
                     <FormControl className={classes.formControl}>
                         <InputLabel shrink id="demo-simple-select-placeholder-label-label">
@@ -162,4 +162,4 @@ const mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, { filterByAlphabetItemsAZ, filterByAlphabetItemsZA })(Filters);
+export default connect(mapStateToProps, { filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate })(Filters);

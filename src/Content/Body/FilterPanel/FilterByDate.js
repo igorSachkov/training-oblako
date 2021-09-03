@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const FilterByDate = ({dateList}) => {
+const FilterByDate = ({dateList, filterByDate}) => {
     
     const [period, setPeriod] = React.useState('');
     
@@ -51,7 +51,7 @@ const FilterByDate = ({dateList}) => {
                 {/* <MenuItem value={10}>Ten</MenuItem> */}
                 {dateList.map((item, i) => {
                     return (
-                        <MenuItem key={i} value={item} >{`${monthArray[Number(item.substr(4))]} ${item.substr(0,4)}`}</MenuItem>
+                        <MenuItem key={i} value={item} onClick={()=> filterByDate(Number(item.substr(4)))}>{`${monthArray[Number(item.substr(4))]} ${item.substr(0,4)}`}</MenuItem>
                     )
                 })}
 

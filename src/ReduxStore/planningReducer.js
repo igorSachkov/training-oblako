@@ -25,6 +25,7 @@ let initialStore = [
 
 
 export const planningReducer = (state = initialStore, action) => {
+    
     switch (action.type) {
         case deletePlanningItemConstant:
             return state.filter(item => item.id != action.id)
@@ -33,7 +34,6 @@ export const planningReducer = (state = initialStore, action) => {
         case editPlanningItemConstant:
             return state.map(function (e) {
                 if (e.id == action.id) {
-                    
                     return { id: e.id, date: action.date ? new Date(action.date) : e.date, name: action.name ? action.name : e.name,
                          members: action.members ? action.members : e.members, coach: action.coach ? action.coach : e.coach, progress: action.progress ? action.progress : e.progress}
                 } else {
@@ -52,6 +52,8 @@ export const planningReducer = (state = initialStore, action) => {
                     return -1
                 } else return 1
             })
+        case filterByDateConstant:
+            return state.filter(e=> e.date.getMonth() === action.month)
         default:
             return state
     }
