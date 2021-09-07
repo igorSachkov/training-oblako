@@ -68,8 +68,6 @@ export default function Header() {
     setAnchorEl(null);
   };
 
-
-
   return (
     <div className="header-container">
       <Grid container spacing={3}>

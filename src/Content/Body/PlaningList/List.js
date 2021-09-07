@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const List = ({ items, deletePlanningItem, editPlanningItem }) => {
+const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) => {
     const classes = useStyles();
     return (
         <div >
@@ -50,7 +50,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem }) => {
                 </Grid>
             </div>
             <div className="items-container">
-                {items.map((item, i) => {
+                {containerState.map((item, i) => {
                     return (<div key={item.id} className="list__item">
                         <Grid container spacing={3} alignItems="center">
                             <Grid item xs={1}>
@@ -83,12 +83,4 @@ const List = ({ items, deletePlanningItem, editPlanningItem }) => {
     )
 };
 
-
-const mapStateToProps = (state) => {
-
-    return {
-        items: state.planning
-    }
-};
-
-export default connect(mapStateToProps, { deletePlanningItem, editPlanningItem })(List);
+export default List;

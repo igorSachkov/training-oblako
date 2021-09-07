@@ -62,17 +62,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items }) => {
-    
 
+
+
+const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates }) => {
 
     const classes = useStyles();
     
     
     const [status, setStatus] = React.useState('');
-    
-
-
 
     const filterDateList = (list) => {
         const uniqueDates = [...list.map(e=> `${e.date.getFullYear()}${e.date.getMonth()}`)]
@@ -120,8 +118,8 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
 
                     </div>
                 </div>
-                <FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} />
-                <FilterByDate dateList={dateList} filterByDate={filterByDate}/>
+                <FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} dispatch={dispatch}/>
+                <FilterByDate dateList={dateList} filterByDate={filterByDate} dispatch={dispatch} refreshAllDates={refreshAllDates}/>
                 <div>
                     <FormControl className={classes.formControl}>
                         <InputLabel shrink id="demo-simple-select-placeholder-label-label">
@@ -154,12 +152,6 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
     )
 };
 
-const mapStateToProps = (state) => {
-    
-    return {
-        items: state.planning
-    }
 
-}
 
-export default connect(mapStateToProps, { filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate })(Filters);
+export default Filters;

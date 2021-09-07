@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const FilterByAlphabet = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA}) => {
+const FilterByAlphabet = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA, dispatch}) => {
     const classes = useStyles();
     const [program, setProgram] = React.useState('');
 
@@ -41,8 +41,8 @@ const FilterByAlphabet = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA}) =>
                     <MenuItem value="">
                         <em>Все</em>
                     </MenuItem>
-                    <MenuItem onClick={filterByAlphabetItemsAZ} value={"a-z"}>По алфавиту</MenuItem>
-                    <MenuItem onClick={filterByAlphabetItemsZA} value={"z-a"}>В обратном порядке</MenuItem>
+                    <MenuItem onClick={()=> dispatch(filterByAlphabetItemsAZ())} value={"a-z"}>По алфавиту</MenuItem>
+                    <MenuItem onClick={()=> dispatch(filterByAlphabetItemsZA())} value={"z-a"}>В обратном порядке</MenuItem>
 
                 </Select>
 

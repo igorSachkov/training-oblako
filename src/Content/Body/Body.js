@@ -8,6 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import List from "./PlaningList/List"
 import Filters from "./FilterPanel/Filters"
+import ListWithFiltersContainer from './ListWithFiltersContainer';
 
 
 const TabPanel = (props) => {
@@ -86,12 +87,10 @@ const Body = () => {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                    <div>
 
-                        <Filters />
-                        <List />
+                <ListWithFiltersContainer />
 
-                    </div>
+
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     Item Two

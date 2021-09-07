@@ -1,10 +1,5 @@
 import uniqid from 'uniqid';
-const deletePlanningItemConstant = `DELETE-PLANNING-ITEM`
-const addPlanningItemConstant = `ADD-PLANNING-ITEM`
-const editPlanningItemConstant = `EDIT-PLANNING-ITEM`
-const filterByAlphabetItemsConstantAZ = `FILTER-BY-ALPHABET-A-Z`
-const filterByAlphabetItemsConstantZA = `FILTER-BY-ALPHABET-Z-A`
-const filterByDateConstant = `FILTER-BY-DATE`
+import constants from './constants';
 
 
 
@@ -26,12 +21,13 @@ let initialStore = [
 
 export const planningReducer = (state = initialStore, action) => {
     
+    
     switch (action.type) {
-        case deletePlanningItemConstant:
+        case constants.deletePlanningItemConstant:
             return state.filter(item => item.id != action.id)
-        case addPlanningItemConstant:
+        case constants.addPlanningItemConstant:
             return [...state, { id: uniqid(), date: new Date(action.date), name: action.name, members: action.members, coach: action.coach, progress: 0 }]
-        case editPlanningItemConstant:
+        case constants.editPlanningItemConstant:
             return state.map(function (e) {
                 if (e.id == action.id) {
                     return { id: e.id, date: action.date ? new Date(action.date) : e.date, name: action.name ? action.name : e.name,
@@ -40,28 +36,13 @@ export const planningReducer = (state = initialStore, action) => {
                     return e
                 }
             })
-        case filterByAlphabetItemsConstantAZ:
-            return [...state].sort(function (a, b) {
-                if (a.name > b.name) {
-                    return 1
-                } else return - 1
-            })
-        case filterByAlphabetItemsConstantZA:
-            return [...state].sort(function (a, b) {
-                if (a.name > b.name) {
-                    return -1
-                } else return 1
-            })
-        case filterByDateConstant:
-            return state.filter(e=> e.date.getMonth() === action.month)
+
         default:
             return state
     }
 }
 
-export const deletePlanningItem = (id) => ({ type: deletePlanningItemConstant, id })
-export const addPlanningItem = (name, members, coach, date) => ({ type: addPlanningItemConstant, name, members, coach, date })
-export const editPlanningItem = (id, name, members, coach, progress, date) => ({ type: editPlanningItemConstant, id, name, members, coach, progress, date })
-export const filterByAlphabetItemsAZ = () => ({ type: filterByAlphabetItemsConstantAZ })
-export const filterByAlphabetItemsZA = () => ({ type: filterByAlphabetItemsConstantZA })
-export const filterByDate = (month) => ({ type: filterByDateConstant, month })
+export const deletePlanningItem = (id) => ({ type: constants.deletePlanningItemConstant, id })
+export const addPlanningItem = (name, members, coach, date) => ({ type: constants.addPlanningItemConstant, name, members, coach, date })
+export const editPlanningItem = (id, name, members, coach, progress, date) => ({ type: constants.editPlanningItemConstant, id, name, members, coach, progress, date })
+
