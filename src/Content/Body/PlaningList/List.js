@@ -77,7 +77,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                         </Grid>
                     </div>)
                 })}
-                {/* <EditItemForm /> */}
+                
             </div>
         </div>
     )

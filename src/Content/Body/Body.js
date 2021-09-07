@@ -6,8 +6,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import List from "./PlaningList/List"
-import Filters from "./FilterPanel/Filters"
 import ListWithFiltersContainer from './ListWithFiltersContainer';
 
 

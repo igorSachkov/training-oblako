@@ -144,9 +144,9 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                 </div>
             </div>
             <div className="filters-container__bottom">
-                <div>{itemsLength} сессии</div>
-                <div className="filter-settings"><img src={filterSettings} />Настроить фильтр</div>
-                <div className="clear"><img src={clear} />Сбросить</div>
+                <div className="filters-container__bottom__sessions">{itemsLength} сессии</div>
+                <div className="filters-container__bottom__filter-settings"><img src={filterSettings} />Настроить фильтр</div>
+                <div className="filters-container__bottom__clear"><img src={clear} />Сбросить</div>
             </div>
         </div>
     )

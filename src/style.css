@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main-container {
@@ -32,35 +32,49 @@
   display: flex;
 }
 
-.filters-container__top__search {
+.filters-container__search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  margin-bottom: 8px;
+  position: relative;
 }
 
 .filters-container__bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 20px 0px;
 }
 
-.filters-container__bottom .filter-settings {
+.filters-container__bottom__sessions {
+  color: grey;
+}
+
+.filters-container__bottom__filter-settings {
   margin-left: 20px;
   font-size: 16px;
   font-weight: bold;
-  color: #1071FF;
+  color: #1071ff;
+  vertical-align: middle;
+  margin-left: 7vw;
 }
 
-.filters-container__bottom .filter-settings img {
+.filters-container__bottom__filter-settings img {
   max-width: 20px;
   vertical-align: middle;
   margin-right: 17px;
 }
 
-.filters-container__bottom .clear img {
+.filters-container__bottom__clear {
+  margin-left: 4vw;
+}
+
+.filters-container__bottom__clear img {
   max-width: 15px;
   vertical-align: middle;
   margin-right: 17px;
@@ -73,10 +87,9 @@
 }
 
 .body-tabs {
-  -webkit-box-shadow: 0px 1px 0px 0px #C1C1C1;
-  box-shadow: 0px 1px 0px 0px #C1C1C1;
+  -webkit-box-shadow: 0px 1px 0px 0px #c1c1c1;
+  box-shadow: 0px 1px 0px 0px #c1c1c1;
   margin-top: 40px;
-  margin-left: 24px;
 }
 
 .add-planning {
@@ -87,7 +100,7 @@
   width: -moz-max-content;
   width: max-content;
   float: right;
-  color: #1071FF;
+  color: #1071ff;
   font-size: 18px;
   font-weight: bold;
   margin-top: 3px;
