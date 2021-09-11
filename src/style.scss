@@ -35,6 +35,7 @@
     padding: 20px 0px;
     &__sessions {
       color: grey;
+      cursor: pointer;
     }
     &__filter-settings {
       margin-left: 20px;
@@ -43,6 +44,7 @@
       color: #1071ff;
       vertical-align: middle;
       margin-left: 7vw;
+      cursor: pointer;
       img {
         max-width: 20px;
         vertical-align: middle;
@@ -51,6 +53,7 @@
     }
     &__clear {
       margin-left: 4vw;
+      cursor: pointer;
       img {
         max-width: 15px;
         vertical-align: middle;

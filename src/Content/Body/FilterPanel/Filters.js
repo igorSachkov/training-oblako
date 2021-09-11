@@ -65,11 +65,16 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates }) => {
-
+const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates, searcherAC }) => {
+    
     const classes = useStyles();
     
-    
+    const [search, setSearch] = React.useState('');
+    const handleChangeSearch = (event) => {
+        setSearch(event.target.value);
+        dispatch(searcherAC(event.target.value))
+        
+    }
     const [status, setStatus] = React.useState('');
 
     const filterDateList = (list) => {
@@ -85,7 +90,7 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
     
     useEffect(() => {
         setDateList(filterDateList(items))
-        console.log("useEffect")
+       
     }, [items]);
 
     const [itemsLength, setItemsLength] = React.useState(items.length);
@@ -114,6 +119,8 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                                 input: classes.inputInput,
                             }}
                             inputProps={{ 'aria-label': 'search' }}
+                            value={search}
+                            onChange={handleChangeSearch}
                         />
 
                     </div>

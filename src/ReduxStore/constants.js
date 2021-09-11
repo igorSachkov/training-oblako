@@ -5,7 +5,8 @@ const constants = {
     filterByAlphabetItemsConstantAZ: `FILTER-BY-ALPHABET-A-Z`,
     filterByAlphabetItemsConstantZA: `FILTER-BY-ALPHABET-Z-A`,
     filterByDateConstant: `FILTER-BY-DATE`,
-    refreshAllDatesConstant: `REFRESH-ALL-DATES`
+    refreshAllDatesConstant: `REFRESH-ALL-DATES`,
+    searchConstant: `SEARCH`
 };
 
 export default constants;

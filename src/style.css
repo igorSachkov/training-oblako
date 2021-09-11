@@ -53,6 +53,7 @@
 
 .filters-container__bottom__sessions {
   color: grey;
+  cursor: pointer;
 }
 
 .filters-container__bottom__filter-settings {
@@ -62,6 +63,7 @@
   color: #1071ff;
   vertical-align: middle;
   margin-left: 7vw;
+  cursor: pointer;
 }
 
 .filters-container__bottom__filter-settings img {
@@ -72,6 +74,7 @@
 
 .filters-container__bottom__clear {
   margin-left: 4vw;
+  cursor: pointer;
 }
 
 .filters-container__bottom__clear img {

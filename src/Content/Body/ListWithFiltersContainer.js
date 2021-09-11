@@ -34,15 +34,26 @@ const ListWithFiltersContainer = (props) => {
                 return props.items.filter(e => e.date.getMonth() === action.month)
             case constants.refreshAllDatesConstant:
                 return props.items
+
+            case constants.searchConstant:
+                const pattern = /[^a-zа-я0-9]+/gi;
+
+
+
+
+                return props.items.filter(e => e.name.toLowerCase().replace(pattern, '').indexOf(action.value.toLowerCase().replace(pattern, '')) + 1 )
+
             default:
                 return state
         }
     }
-
+    const a = "lll"
+    
     const filterByAlphabetItemsAZ = () => ({ type: constants.filterByAlphabetItemsConstantAZ })
     const filterByAlphabetItemsZA = () => ({ type: constants.filterByAlphabetItemsConstantZA })
     const filterByDate = (month) => ({ type: constants.filterByDateConstant, month })
     const refreshAllDates = () => ({ type: constants.refreshAllDatesConstant })
+    const searcherAC = (value) => ({ type: constants.searchConstant, value })
 
     const [containerState, dispatch] = useReducer(containerReducer, props.items);
 
@@ -54,9 +65,9 @@ const ListWithFiltersContainer = (props) => {
 
     return (
         <div>
-            <Filters {...props} filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} 
-            dispatch={dispatch} filterByDate={filterByDate} 
-            refreshAllDates={refreshAllDates}
+            <Filters {...props} filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA}
+                dispatch={dispatch} filterByDate={filterByDate}
+                refreshAllDates={refreshAllDates} searcherAC={searcherAC}
             />
             <List {...props} containerState={containerState} />
         </div>)
