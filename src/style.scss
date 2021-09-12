@@ -138,3 +138,11 @@
     margin-left: 6.5px;
   }
 }
+@media (max-width: 992px) { 
+  .coach {
+    display: none;
+  }
+  .listIcon {
+    opacity: 1;
+  }
+ }

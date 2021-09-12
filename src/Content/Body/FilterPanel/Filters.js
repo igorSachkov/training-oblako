@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates, searcherAC }) => {
+const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates, searcherAC, containerState }) => {
     
     const classes = useStyles();
     
@@ -93,11 +93,11 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
        
     }, [items]);
 
-    const [itemsLength, setItemsLength] = React.useState(items.length);
+    const [containerLength, setContainerLength] = React.useState(containerState.length);
 
     useEffect(() => {
-        setItemsLength(items.length)
-    }, [items]);
+        setContainerLength(containerState.length)
+    }, [containerState]);
     const handle = (set) => {
         return function handleChange(event) {
             set(event.target.value);
@@ -151,7 +151,7 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                 </div>
             </div>
             <div className="filters-container__bottom">
-                <div className="filters-container__bottom__sessions">{itemsLength} сессии</div>
+                <div className="filters-container__bottom__sessions">{containerLength} сессии</div>
                 <div className="filters-container__bottom__filter-settings"><img src={filterSettings} />Настроить фильтр</div>
                 <div className="filters-container__bottom__clear"><img src={clear} />Сбросить</div>
             </div>

@@ -31,7 +31,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
         <div >
             <div className={classes.root}>
                 <Grid container spacing={3}>
-                    <Grid item xs={1}>
+                    <Grid item xs={2} md={1}>
                         Дата начала
                     </Grid>
                     <Grid item xs={5}>
@@ -40,7 +40,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                     <Grid item xs={2}>
                         Участников
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={2} className="coach">
                         Тренер
                     </Grid>
                     <Grid item xs={1}>
@@ -53,7 +53,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                 {containerState.map((item, i) => {
                     return (<div key={item.id} className="list__item">
                         <Grid container spacing={3} alignItems="center">
-                            <Grid item xs={1}>
+                            <Grid item xs={2} md={1}>
                                 {showDate(item.date)}
                             </Grid>
                             <Grid item xs={5}>
@@ -62,7 +62,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                             <Grid item xs={2}>
                                 {item.members}
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid item xs={2} className="coach">
                                 {item.coach}
                             </Grid>
                             <Grid item xs={1}>

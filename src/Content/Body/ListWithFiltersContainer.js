@@ -68,6 +68,7 @@ const ListWithFiltersContainer = (props) => {
             <Filters {...props} filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA}
                 dispatch={dispatch} filterByDate={filterByDate}
                 refreshAllDates={refreshAllDates} searcherAC={searcherAC}
+                containerState={containerState}
             />
             <List {...props} containerState={containerState} />
         </div>)
