@@ -66,31 +66,32 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates, searcherAC, containerState }) => {
-    
+
     const classes = useStyles();
-    
+
     const [search, setSearch] = React.useState('');
     const handleChangeSearch = (event) => {
         setSearch(event.target.value);
         dispatch(searcherAC(event.target.value))
-        
+
     }
     const [status, setStatus] = React.useState('');
 
     const filterDateList = (list) => {
-        const uniqueDates = [...list.map(e=> `${e.date.getFullYear()}${e.date.getMonth()}`)]
-        const result = [...new Set(uniqueDates)].sort((a, b)=> {
-            
-            return Number(b) - Number(a)})
-        
+        const uniqueDates = [...list.map(e => `${e.date.getFullYear()}${e.date.getMonth()}`)]
+        const result = [...new Set(uniqueDates)].sort((a, b) => {
+
+            return Number(b) - Number(a)
+        })
+
         return result
     }
-    
+
     const [dateList, setDateList] = React.useState(filterDateList(items));
-    
+
     useEffect(() => {
         setDateList(filterDateList(items))
-       
+
     }, [items]);
 
     const [containerLength, setContainerLength] = React.useState(containerState.length);
@@ -122,12 +123,14 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                             value={search}
                             onChange={handleChangeSearch}
                         />
-
+                        <div className="filters-container__top__filter-settings"><img src={filterSettings} /></div>
                     </div>
                 </div>
-                <FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} dispatch={dispatch}/>
-                <FilterByDate dateList={dateList} filterByDate={filterByDate} dispatch={dispatch} refreshAllDates={refreshAllDates}/>
-                <div>
+                <div className="fullscreen-filters"><FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} dispatch={dispatch} /></div>
+                <div className="fullscreen-filters"><FilterByDate dateList={dateList} filterByDate={filterByDate} dispatch={dispatch} refreshAllDates={refreshAllDates} /></div>
+
+
+                <div className="fullscreen-filters">
                     <FormControl className={classes.formControl}>
                         <InputLabel shrink id="demo-simple-select-placeholder-label-label">
                             Статус

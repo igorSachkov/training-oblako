@@ -39,9 +39,9 @@ const ModalWindowAdd = (props) => {
   }
 
   return (
-    <div>
+    <div className="add-planning__item-container">
       <div onClick={handleOpen} className="add-planning__item">
-        <img src={addIcon} />Запланировать
+        <img src={addIcon} /><span>Запланировать</span>
       </div>
       <Modal
         aria-labelledby="transition-modal-title"

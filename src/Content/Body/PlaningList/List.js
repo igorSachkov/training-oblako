@@ -66,7 +66,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                                 {item.coach}
                             </Grid>
                             <Grid item xs={1}>
-                                <div>
+                                <div className="progress-percents">
                                     <img src={progressIcon} /> {item.progress} %
                                 </div>
 

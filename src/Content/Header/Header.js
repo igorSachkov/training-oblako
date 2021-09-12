@@ -117,7 +117,7 @@ export default function Header() {
             <ModalWindowAdd />
           </div>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className="bread-crump-container">
           <div className="bread-crump">
             <BreadCrump />
           </div>
