@@ -125,6 +125,9 @@
     margin-right: 13px;
   }
 }
+.members::after {
+  content: "Участников";
+}
 .bread-crump {
   padding-top: 26px;
   padding-left: 62px;
@@ -149,13 +152,11 @@
     margin-right: 17px;
   }
 }
-@media (max-width: 992px) {
+@media (max-width: 960px) {
   .coach {
     display: none;
   }
-  .listIcon {
-    opacity: 1;
-  }
+
   .header-title {
     display: none;
   }
@@ -199,7 +200,30 @@
     width: 100%;
   }
   .filters-container__top__filter-settings {
+    
+    height: 100%;
     display: inline;
+    
+    img {
+      float: right;
+    }
   }
-
+  .filters-container__bottom {
+    display: none;
+  }
+  .header-container {
+    padding: 2.5% 2.5% 0;
+  }
+  .main-container {
+    max-width: 100%;
+  }
+  .members::after {
+    content: "Уч.";
+  }
+  .edit-item-column {
+    display: none;
+  }
+  .list__item {
+    margin-top: 3%;
+  }
 }
