@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/training-oblako/static/css/main.96096e4a.chunk.css",
+    "main.js": "/training-oblako/static/js/main.8c4376e1.chunk.js",
+    "main.js.map": "/training-oblako/static/js/main.8c4376e1.chunk.js.map",
+    "runtime-main.js": "/training-oblako/static/js/runtime-main.ec1475bb.js",
+    "runtime-main.js.map": "/training-oblako/static/js/runtime-main.ec1475bb.js.map",
+    "static/css/2.93782438.chunk.css": "/training-oblako/static/css/2.93782438.chunk.css",
+    "static/js/2.cb022941.chunk.js": "/training-oblako/static/js/2.cb022941.chunk.js",
+    "static/js/2.cb022941.chunk.js.map": "/training-oblako/static/js/2.cb022941.chunk.js.map",
+    "static/js/3.73ccf7e9.chunk.js": "/training-oblako/static/js/3.73ccf7e9.chunk.js",
+    "static/js/3.73ccf7e9.chunk.js.map": "/training-oblako/static/js/3.73ccf7e9.chunk.js.map",
+    "index.html": "/training-oblako/index.html",
+    "static/css/2.93782438.chunk.css.map": "/training-oblako/static/css/2.93782438.chunk.css.map",
+    "static/css/main.96096e4a.chunk.css.map": "/training-oblako/static/css/main.96096e4a.chunk.css.map",
+    "static/js/2.cb022941.chunk.js.LICENSE.txt": "/training-oblako/static/js/2.cb022941.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec1475bb.js",
+    "static/css/2.93782438.chunk.css",
+    "static/js/2.cb022941.chunk.js",
+    "static/css/main.96096e4a.chunk.css",
+    "static/js/main.8c4376e1.chunk.js"
+  ]
+}
