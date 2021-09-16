@@ -126,8 +126,13 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                         <div className="filters-container__top__filter-settings"><img src={filterSettings} /></div>
                     </div>
                 </div>
-                <div className="fullscreen-filters"><FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} dispatch={dispatch} /></div>
-                <div className="fullscreen-filters"><FilterByDate dateList={dateList} filterByDate={filterByDate} dispatch={dispatch} refreshAllDates={refreshAllDates} /></div>
+                <div className="fullscreen-filters">
+                    <FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} dispatch={dispatch} />
+                </div>
+                <div className="fullscreen-filters">
+                    <FilterByDate dateList={dateList} filterByDate={filterByDate} dispatch={dispatch} refreshAllDates={refreshAllDates} />
+                </div>
+
 
 
                 <div className="fullscreen-filters">
@@ -157,6 +162,9 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                 <div className="filters-container__bottom__sessions">{containerLength} сессии</div>
                 <div className="filters-container__bottom__filter-settings"><img src={filterSettings} />Настроить фильтр</div>
                 <div className="filters-container__bottom__clear"><img src={clear} />Сбросить</div>
+            </div>
+            <div className="mobile-screen-filter">
+                <FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} dispatch={dispatch} />
             </div>
         </div>
     )

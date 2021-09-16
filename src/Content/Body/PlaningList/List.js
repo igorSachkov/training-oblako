@@ -40,13 +40,13 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                     <Grid item xs={2} md={2} className="members">
                         
                     </Grid>
-                    <Grid item xs={0} md={2} className="coach">
+                    <Grid item xs={2} md={2} className="coach">
                         Тренер
                     </Grid>
                     <Grid item xs={3} md={1}>
                         Прогресс
                     </Grid>
-                    <Grid item xs={0} md={1} className="edit-item-column"></Grid>
+                    <Grid item xs={1} md={1} className="edit-item-column"></Grid>
                 </Grid>
             </div>
             <div className="items-container">
@@ -62,7 +62,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                             <Grid item xs={2} md={2}>
                                 {item.members}
                             </Grid>
-                            <Grid item xs={0} md={2} className="coach">
+                            <Grid item xs={2} md={2} className="coach">
                                 {item.coach}
                             </Grid>
                             <Grid item xs={3} md={1}>
@@ -71,7 +71,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                                 </div>
 
                             </Grid>
-                            <Grid item xs={0} md={1} className="edit-item-column">
+                            <Grid item xs={1} md={1} className="edit-item-column">
                                 <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} editPlanningItem={editPlanningItem} item={item} />
                             </Grid>
                         </Grid>

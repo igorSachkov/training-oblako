@@ -202,6 +202,10 @@
   margin-right: 17px;
 }
 
+.mobile-screen-filter {
+  display: none;
+}
+
 @media (max-width: 960px) {
   .coach {
     display: none;
@@ -239,6 +243,13 @@
   .add-planning .add-planning__item-container .add-planning__item span {
     display: none;
   }
+  .mobile-screen-filter {
+    display: block;
+    width: 100%;
+  }
+  .mobile-screen-filter .mobile-filter {
+    width: 100%;
+  }
   .bread-crump-container {
     display: none;
   }
@@ -249,7 +260,6 @@
     width: 100%;
   }
   .filters-container__top__filter-settings {
-    height: 100%;
     display: inline;
   }
   .filters-container__top__filter-settings img {

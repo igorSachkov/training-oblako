@@ -152,6 +152,9 @@
     margin-right: 17px;
   }
 }
+.mobile-screen-filter {
+  display: none;
+}
 @media (max-width: 960px) {
   .coach {
     display: none;
@@ -186,7 +189,14 @@
       }
     }
   }
-  
+  .mobile-screen-filter {
+    display: block;
+    width: 100%;
+    .mobile-filter {
+      width: 100%;
+    }
+    
+  }
   .bread-crump-container {
     display: none;
   }
@@ -201,7 +211,7 @@
   }
   .filters-container__top__filter-settings {
     
-    height: 100%;
+    
     display: inline;
     
     img {

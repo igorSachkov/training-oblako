@@ -26,7 +26,7 @@ const FilterByAlphabet = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA, dis
 
     return (
         <div>
-            <FormControl className={classes.formControl}>
+            <FormControl className={`${classes.formControl} mobile-filter`}>
                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
                     Программа
                 </InputLabel>
