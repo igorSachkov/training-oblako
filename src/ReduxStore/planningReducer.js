@@ -15,9 +15,15 @@ let initialStore = [
     { id: 109, date: new Date(1636871400000), name: "Организация и ведение рыночных отношений", members: 4, coach: "", progress: 21 },
     { id: 110, date: new Date(1640239200000), name: "Гостиничный сервис", members: 21, coach: "", progress: 15 },
 ]
-// let someUsers = users.filter(item => item.id < 3)
 
+// async function  some() {
+//     let promise = await fetch("https://my-json-server.typicode.com/typicode/demo/posts")
+//     let commits = await promise.json()
+//     console.log(commits)
+// }
+// some()
 
+console.log(JSON.stringify(initialStore))
 
 export const planningReducer = (state = initialStore, action) => {
     
