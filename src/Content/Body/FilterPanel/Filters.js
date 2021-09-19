@@ -13,6 +13,7 @@ import filterSettings from "./../../../icons/filter-settings.png"
 import clear from "./../../../icons/clear.png"
 import FilterByAlphabet from './FilterByAlphabet';
 import FilterByDate from './FilterByDate';
+import FilterByStatus from './FilterByStatus';
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -65,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates, searcherAC, containerState }) => {
+const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates, searcherAC, containerState, progressAC, membersAC }) => {
 
     const classes = useStyles();
 
@@ -132,30 +133,8 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                 <div className="fullscreen-filters">
                     <FilterByDate dateList={dateList} filterByDate={filterByDate} dispatch={dispatch} refreshAllDates={refreshAllDates} />
                 </div>
-
-
-
                 <div className="fullscreen-filters">
-                    <FormControl className={classes.formControl}>
-                        <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                            Статус
-                        </InputLabel>
-                        <Select
-                            labelId="demo-simple-select-placeholder-label-label"
-                            id="demo-simple-select-placeholder-label"
-                            value={status}
-                            onChange={handle(setStatus)}
-                            displayEmpty
-                            className={classes.selectEmpty}
-                        >
-                            <MenuItem value="">
-                                <em>Все</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
-                        </Select>
-                    </FormControl>
+                    <FilterByStatus dispatch={dispatch} progressAC={progressAC} membersAC={membersAC}/>
                 </div>
             </div>
             <div className="filters-container__bottom">

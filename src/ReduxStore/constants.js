@@ -6,7 +6,9 @@ const constants = {
     filterByAlphabetItemsConstantZA: `FILTER-BY-ALPHABET-Z-A`,
     filterByDateConstant: `FILTER-BY-DATE`,
     refreshAllDatesConstant: `REFRESH-ALL-DATES`,
-    searchConstant: `SEARCH`
+    searchConstant: `SEARCH`,
+    progressConstant: `PROGRESS`,
+    membersConstant: `MEMBERS`
 };
 
 export default constants;
