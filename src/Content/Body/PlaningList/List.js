@@ -1,6 +1,6 @@
 
 import ListItemIcon from "./ListItemIcon";
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { connect } from "react-redux"
@@ -13,6 +13,9 @@ const showDate = (date) => {
     if(minutes.length === 1) minutes = `0${minutes}`
     return `${date.getDate()} ${monthArray[date.getMonth()].substring(0, 3).toLowerCase()} ${date.getHours()}:${minutes}`
 }
+
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,6 +30,31 @@ const useStyles = makeStyles((theme) => ({
 
 const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) => {
     const classes = useStyles();
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    const [booleanState, setBoolean] = useState(false);
+    const widthListener = ()=> {
+        window.innerWidth <= 960 ? setBoolean(true) : setBoolean(false)
+    }
+    useEffect(() => {
+        window.addEventListener('resize', widthListener)
+        return () => {
+            window.removeEventListener('resize', widthListener);
+        };
+    });
     return (
         <div >
             <div className={classes.root}>
@@ -51,7 +79,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
             </div>
             <div className="items-container">
                 {containerState.map((item, i) => {
-                    return (<div key={item.id} className="list__item">
+                    return (<div key={item.id} className="list__item" onClick={()=> booleanState && console.log(`you clicked on ${item.id}`) }>
                         <Grid container spacing={3} alignItems="center">
                             <Grid item xs={3} md={1}>
                                 {showDate(item.date)}

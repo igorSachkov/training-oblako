@@ -17,13 +17,13 @@ let initialStore = [
 ]
 
 // async function  some() {
-//     let promise = await fetch("https://my-json-server.typicode.com/typicode/demo/posts")
+//     let promise = await fetch("https://github.com/igorSachkov/training-oblako/blob/master/src/ReduxStore/events.json")
 //     let commits = await promise.json()
 //     console.log(commits)
 // }
 // some()
 
-console.log(JSON.stringify(initialStore))
+// console.log(JSON.stringify(initialStore))
 
 export const planningReducer = (state = initialStore, action) => {
     
