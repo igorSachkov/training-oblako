@@ -57,7 +57,7 @@ const ModalWindowAdd = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <ModalForm onSubmit={handleSubmit}/>
+            <ModalForm onSubmit={handleSubmit} />
           </div>
         </Fade>
       </Modal>

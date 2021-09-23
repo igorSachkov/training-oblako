@@ -28,18 +28,21 @@ const SimpleForm = props => {
     <form onSubmit={handleSubmit}>
 
       <div>
-        <label>Дата</label>
+        <label >Дата</label>
+        <div className="modal-label">
         <Field
           name="date"
           showTime={false}
           component={renderDateTimePicker}
         />
+        </div>
+
       </div>
 
 
       <div>
-        <label>Название</label>
-        <div>
+        <label >Название</label>
+        <div className="modal-label">
           <Field
             name="name"
             component="input"
@@ -50,8 +53,8 @@ const SimpleForm = props => {
         </div>
       </div>
       <div>
-        <label>Количество участников</label>
-        <div>
+        <label >Количество участников</label>
+        <div className="modal-label">
           <Field
             name="members"
             component="input"
@@ -63,8 +66,8 @@ const SimpleForm = props => {
 
 
       <div>
-        <label>Тренер</label>
-        <div>
+        <label >Тренер</label>
+        <div className="modal-label">
           <Field name="coach" component="select">
             <option />
             <option value="Georgiy">Георгий</option>
@@ -76,10 +79,10 @@ const SimpleForm = props => {
 
       <div>
         <button type="submit" disabled={pristine || submitting}>
-          Submit
+          Отправить
         </button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
-          Clear Values
+          Очистить
         </button>
       </div>
     </form>

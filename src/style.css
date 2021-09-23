@@ -170,6 +170,10 @@
   content: "Участников";
 }
 
+.modal-label {
+  margin: 7px;
+}
+
 .bread-crump {
   padding-top: 26px;
   padding-left: 62px;
