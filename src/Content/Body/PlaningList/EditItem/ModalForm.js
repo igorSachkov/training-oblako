@@ -43,18 +43,21 @@ const SimpleForm = (props) => {
 
       <div>
         <label>Дата</label>
+        <div className="modal-label">
         <Field
           name="date"
           showTime={false}
           component={renderDateTimePicker}
           
         />
+        </div>
+
       </div>
 
 
       <div>
         <label>Название</label>
-        <div>
+        <div className="modal-label">
           <Field
             name="name"
             component="input"
@@ -66,7 +69,7 @@ const SimpleForm = (props) => {
       </div>
       <div>
         <label>Количество участников</label>
-        <div>
+        <div className="modal-label">
           <Field
             name="members"
             component="input"
@@ -77,9 +80,9 @@ const SimpleForm = (props) => {
       </div>
 
 
-      <div>
+      <div >
         <label>Тренер</label>
-        <div>
+        <div className="modal-label">
           <Field name="coach" component="select">
             <option />
             <option value="Georgiy">Георгий</option>
@@ -89,16 +92,16 @@ const SimpleForm = (props) => {
         </div>
       </div>
 
-      <div>
+      <div className="modal-label">
         <ProgressSlider setProgress={setProgress} value={value} setValue={setValue} />
       </div>
 
       <div>
         <button type="submit" disabled={false}>
-          Submit
+          Отправить
         </button>
         <button type="button" disabled={false} onClick={resetEditModal}>
-          Clear Values
+          Очистить
         </button>
       </div>
     </form>
