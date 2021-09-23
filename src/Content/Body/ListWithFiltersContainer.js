@@ -4,7 +4,7 @@ import List from "./PlaningList/List"
 import { deletePlanningItem, editPlanningItem, getEventsThunk } from "../../ReduxStore/planningReducer";
 import { useReducer, useEffect, useMemo } from "react";
 import constants from "../../ReduxStore/constants";
-
+import { dateConverter } from "../Common/Dates";
 
 
 
@@ -31,7 +31,7 @@ const ListWithFiltersContainer = (props) => {
                     } else return 1
                 })
             case constants.filterByDateConstant:
-                return props.items.filter(e => e.date.getMonth() === action.month)
+                return props.items.filter(e => dateConverter(e.date).getMonth() === action.month)
             case constants.refreshAllDatesConstant:
                 return props.items
 
