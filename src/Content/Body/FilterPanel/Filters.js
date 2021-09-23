@@ -14,6 +14,7 @@ import clear from "./../../../icons/clear.png"
 import FilterByAlphabet from './FilterByAlphabet';
 import FilterByDate from './FilterByDate';
 import FilterByStatus from './FilterByStatus';
+import { dateConverter } from '../../Common/Dates';
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -79,7 +80,8 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
     const [status, setStatus] = React.useState('');
 
     const filterDateList = (list) => {
-        const uniqueDates = [...list.map(e => `${e.date.getFullYear()}${e.date.getMonth()}`)]
+        
+        const uniqueDates = [...list.map(e => `${dateConverter(e.date).getFullYear()}${dateConverter(e.date).getMonth()}`)]
         const result = [...new Set(uniqueDates)].sort((a, b) => {
 
             return Number(b) - Number(a)

@@ -12,3 +12,6 @@ export const monthArray = [
     'Ноябрь',
     'Декабрь',
 ];
+
+
+export const dateConverter = (numDate) => new Date(numDate)

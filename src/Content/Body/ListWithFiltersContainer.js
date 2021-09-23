@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Filters from "./FilterPanel/Filters"
 import List from "./PlaningList/List"
-import { deletePlanningItem, editPlanningItem } from "../../ReduxStore/planningReducer";
+import { deletePlanningItem, editPlanningItem, getEventsThunk } from "../../ReduxStore/planningReducer";
 import { useReducer, useEffect, useMemo } from "react";
 import constants from "../../ReduxStore/constants";
 
@@ -73,6 +73,10 @@ const ListWithFiltersContainer = (props) => {
         dispatch(refreshAllDates())
     }, [props.items]);
 
+    useEffect(() => {
+        props.getEventsThunk()
+        
+    }, []);
 
 
     return (
@@ -94,4 +98,4 @@ const mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, { deletePlanningItem, editPlanningItem })(ListWithFiltersContainer);
+export default connect(mapStateToProps, { deletePlanningItem, editPlanningItem, getEventsThunk })(ListWithFiltersContainer);
