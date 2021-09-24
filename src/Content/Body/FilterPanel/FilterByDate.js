@@ -8,7 +8,8 @@ import { monthArray } from "../../Common/Dates";
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
-        minWidth: 120,
+        minWidth: 160,
+        marginRight: 30
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
@@ -33,7 +34,7 @@ const FilterByDate = ({dateList, filterByDate, dispatch, refreshAllDates}) => {
 
     return (
         <div>
-        <FormControl className={classes.formControl}>
+        <FormControl className={`${classes.formControl} filter-element`}>
             <InputLabel shrink id="demo-simple-select-placeholder-label-label">
                 Период
             </InputLabel>

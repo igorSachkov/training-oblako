@@ -36,7 +36,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
 
 
 
-
+    
 
 
 
@@ -102,7 +102,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
 
                             </Grid>
                             <Grid item xs={1} md={1} className="edit-item-column">
-                                <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} editPlanningItem={editPlanningItem} item={item} />
+                                <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} editPlanningItem={editPlanningItem} item={item}/>
                             </Grid>
                         </Grid>
                     </div>)

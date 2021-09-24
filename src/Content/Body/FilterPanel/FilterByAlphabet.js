@@ -7,7 +7,9 @@ import Select from '@material-ui/core/Select';
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
-        minWidth: 120,
+        minWidth: 160,
+        marginRight: 30,
+        marginLeft: 30
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
@@ -26,7 +28,7 @@ const FilterByAlphabet = ({filterByAlphabetItemsAZ, filterByAlphabetItemsZA, dis
 
     return (
         <div>
-            <FormControl className={`${classes.formControl}`}>
+            <FormControl className={`${classes.formControl} filter-element`}>
                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
                     Программа
                 </InputLabel>
