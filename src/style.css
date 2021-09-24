@@ -247,11 +247,11 @@
   .add-planning .add-planning__item-container .add-planning__item span {
     display: none;
   }
-  .mobile-screen-filter {
-    display: block;
+  .mobile-filter {
     width: 100%;
   }
-  .mobile-screen-filter .mobile-filter {
+  .mobile-screen-filter {
+    display: block;
     width: 100%;
   }
   .bread-crump-container {

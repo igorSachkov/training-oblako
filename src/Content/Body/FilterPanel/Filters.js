@@ -15,6 +15,7 @@ import FilterByAlphabet from './FilterByAlphabet';
 import FilterByDate from './FilterByDate';
 import FilterByStatus from './FilterByStatus';
 import { dateConverter } from '../../Common/Dates';
+import MobileFilter from './MobileFilter';
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -112,7 +113,7 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
         <div className="filters-container">
             <div className="filters-container__top">
                 <div className="filters-container__search">
-                    <div className={classes.search}>
+                    <div className={`${classes.search} mobile-filter`}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
@@ -145,7 +146,7 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                 <div className="filters-container__bottom__clear"><img src={clear} />Сбросить</div>
             </div>
             <div className="mobile-screen-filter">
-                <FilterByAlphabet filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA} dispatch={dispatch} />
+                <MobileFilter dispatch={dispatch} progressAC={progressAC} membersAC={membersAC} filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA}/>
             </div>
         </div>
     )
