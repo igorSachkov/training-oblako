@@ -237,10 +237,27 @@
   .members::after {
     content: "Уч.";
   }
+  .listIcon {
+    max-width: none;
+    height: 40px;
+    
+    
+  }
+
   .edit-item-column {
-    display: none;
+    width: 0;
+    height: 0;
+    
+    
+    transform: translate(42vw, -317%);
+  }
+  .mobile-button-edit {
+    
   }
   .list__item {
     margin-top: 3%;
+  }
+  .filters-container__search {
+    margin-right: 0;
   }
 }

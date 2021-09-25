@@ -27,7 +27,7 @@ const ListItemIcon = ({ deletePlanningItem, editPlanningItem, targetId, item }) 
     };
 
     return (
-        <div>
+        <div className="mobile-button-edit">
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                 <img src={listIcon} className="listIcon" />
             </Button>

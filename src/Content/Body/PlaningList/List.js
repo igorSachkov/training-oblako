@@ -101,7 +101,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                                 </div>
 
                             </Grid>
-                            <Grid item xs={1} md={1} className="edit-item-column">
+                            <Grid item md={1} className="edit-item-column">
                                 <ListItemIcon targetId={item.id} deletePlanningItem={deletePlanningItem} editPlanningItem={editPlanningItem} item={item}/>
                             </Grid>
                         </Grid>
