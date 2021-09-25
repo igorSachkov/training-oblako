@@ -289,14 +289,24 @@
   .edit-item-column {
     width: 0;
     height: 0;
-    -webkit-transform: translate(42vw, -317%);
-            transform: translate(42vw, -317%);
+    -webkit-transform: translate(42vw, -230%);
+            transform: translate(42vw, -230%);
   }
   .list__item {
     margin-top: 3%;
   }
   .filters-container__search {
     margin-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .edit-item-column {
+    -webkit-transform: translate(42vw, -300%);
+            transform: translate(42vw, -300%);
+  }
+  .number-of-members {
+    margin-left: 10px;
   }
 }
 /*# sourceMappingURL=style.css.map */

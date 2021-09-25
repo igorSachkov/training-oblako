@@ -249,7 +249,7 @@
     height: 0;
     
     
-    transform: translate(42vw, -317%);
+    transform: translate(42vw, -230%);
   }
   .mobile-button-edit {
     
@@ -259,5 +259,13 @@
   }
   .filters-container__search {
     margin-right: 0;
+  }
+}
+@media (max-width: 600px) {
+  .edit-item-column {
+    transform: translate(42vw, -300%);
+  }
+  .number-of-members {
+    margin-left: 10px;
   }
 }

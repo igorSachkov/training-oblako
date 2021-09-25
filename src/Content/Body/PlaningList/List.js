@@ -90,7 +90,7 @@ const List = ({ items, deletePlanningItem, editPlanningItem, containerState }) =
                                 {item.name}
                             </Grid>
                             <Grid item xs={2} md={2}>
-                                {item.members}
+                                <div className="number-of-members">{item.members}</div>
                             </Grid>
                             <Grid item xs={2} md={2} className="coach">
                                 {item.coach}
