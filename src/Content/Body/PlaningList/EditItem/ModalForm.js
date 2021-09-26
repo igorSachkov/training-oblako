@@ -73,7 +73,7 @@ const SimpleForm = (props) => {
           <Field
             name="members"
             component="input"
-            type="text"
+            type="number"
             placeholder={members}
           />
         </div>

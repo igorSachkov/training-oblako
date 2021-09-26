@@ -4,25 +4,23 @@ import DatePicker from "react-widgets/DatePicker";
 import "react-widgets/styles.css";
 
 const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
-  
+
   return (
     <DatePicker
       onChange={onChange}
       format="DD MMM YYYY"
       // time={showTime}
-     
+
       value={!value ? null : new Date(value)}
       placeholder={String(new Date)}
       includeTime
-      
+
     />
-    
+
   )
 }
 
-const SimpleForm = props => {
-
-  const { handleSubmit, pristine, reset, submitting } = props
+const SimpleForm = ({ handleSubmit, pristine, reset, submitting }) => {
 
   return (
     <form onSubmit={handleSubmit}>
@@ -30,11 +28,12 @@ const SimpleForm = props => {
       <div>
         <label >Дата</label>
         <div className="modal-label">
-        <Field
-          name="date"
-          showTime={false}
-          component={renderDateTimePicker}
-        />
+          <Field
+
+            name="date"
+            showTime={false}
+            component={renderDateTimePicker}
+          />
         </div>
 
       </div>
@@ -58,7 +57,7 @@ const SimpleForm = props => {
           <Field
             name="members"
             component="input"
-            type="text"
+            type="number"
             placeholder="Участников"
           />
         </div>

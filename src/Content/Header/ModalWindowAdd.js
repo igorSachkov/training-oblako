@@ -33,8 +33,10 @@ const ModalWindowAdd = (props) => {
     setOpen(false);
   };
   const handleSubmit = (event)=> {
+      const date = event.date ? event.date.getTime() : new Date().getTime()
+      props.addPlanningItem(event.name, event.members, event.coach, date)
+
     
-    props.addPlanningItem(event.name, event.members, event.coach, event.date.getTime())
     
   }
 
@@ -57,7 +59,7 @@ const ModalWindowAdd = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <ModalForm onSubmit={handleSubmit} />
+            <ModalForm onSubmit={handleSubmit}/>
           </div>
         </Fade>
       </Modal>
