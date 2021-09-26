@@ -2,6 +2,11 @@ import { Field, reduxForm } from 'redux-form'
 import React from 'react';
 import DatePicker from "react-widgets/DatePicker";
 import "react-widgets/styles.css";
+import { TextField } from '@material-ui/core';
+import { renderField } from '../Common/validators';
+import { maxLength } from '../Common/validators';
+const maxLength30 = maxLength(30)
+const maxLength3 = maxLength(3)
 
 const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
 
@@ -33,6 +38,7 @@ const SimpleForm = ({ handleSubmit, pristine, reset, submitting }) => {
             name="date"
             showTime={false}
             component={renderDateTimePicker}
+            
           />
         </div>
 
@@ -44,10 +50,10 @@ const SimpleForm = ({ handleSubmit, pristine, reset, submitting }) => {
         <div className="modal-label">
           <Field
             name="name"
-            component="input"
+            component={renderField}
             type="text"
-            placeholder="Название"
-
+            placeholder="Название"   
+            validate={[maxLength30]}  
           />
         </div>
       </div>
@@ -56,9 +62,10 @@ const SimpleForm = ({ handleSubmit, pristine, reset, submitting }) => {
         <div className="modal-label">
           <Field
             name="members"
-            component="input"
+            component={renderField}
             type="number"
             placeholder="Участников"
+            validate={[maxLength3]}  
           />
         </div>
       </div>

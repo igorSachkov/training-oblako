@@ -309,4 +309,16 @@
     margin-left: 10px;
   }
 }
+
+.warning {
+  color: red;
+  font-size: .9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 6px;
+}
 /*# sourceMappingURL=style.css.map */

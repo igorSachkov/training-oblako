@@ -3,7 +3,10 @@ import React from 'react';
 import DatePicker from "react-widgets/DatePicker";
 import "react-widgets/styles.css";
 import ProgressSlider from './ProgressSlider/ProgressSlider';
-
+import { renderField } from '../../../Common/validators';
+import { maxLength } from '../../../Common/validators';
+const maxLength30 = maxLength(30)
+const maxLength3 = maxLength(3)
 
 
 const renderDateTimePicker = ({ input: { onChange, value }, showTime }) => {
@@ -60,10 +63,10 @@ const SimpleForm = (props) => {
         <div className="modal-label">
           <Field
             name="name"
-            component="input"
+            component={renderField}
             type="text"
             placeholder={name}
-
+            validate={[maxLength30]}  
           />
         </div>
       </div>
@@ -72,9 +75,10 @@ const SimpleForm = (props) => {
         <div className="modal-label">
           <Field
             name="members"
-            component="input"
+            component={renderField}
             type="number"
             placeholder={members}
+            validate={[maxLength3]}  
           />
         </div>
       </div>
