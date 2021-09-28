@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const MobileFilter = ({ dispatch,  progressAC, membersAC, filterByAlphabetItemsAZ, filterByAlphabetItemsZA }) => {
+const MobileFilter = ({ dispatch,  progressAC, membersAC, filterByAlphabetItemsAZ, filterByAlphabetItemsZA, dateAC}) => {
 
     const [period, setPeriod] = React.useState('');
 
@@ -50,9 +50,10 @@ const MobileFilter = ({ dispatch,  progressAC, membersAC, filterByAlphabetItemsA
                         <em>Все</em>
                     </MenuItem>
                     <MenuItem onClick={()=> dispatch(progressAC()) } value={"progress"}>По прогрессу</MenuItem>
-                    <MenuItem onClick={()=> dispatch(membersAC())} value={"members"}>Количество участников</MenuItem>
+                    <MenuItem onClick={()=> dispatch(membersAC())} value={"members"}>По количеству участников</MenuItem>
                     <MenuItem onClick={()=> dispatch(filterByAlphabetItemsAZ())} value={"a-z"}>По алфавиту</MenuItem>
                     <MenuItem onClick={()=> dispatch(filterByAlphabetItemsZA())} value={"z-a"}>В обратном порядке</MenuItem>
+                    <MenuItem onClick={()=> dispatch(dateAC())} value={"byDate"}>По дате</MenuItem>
                 </Select>
             </FormControl>
         </div>

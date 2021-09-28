@@ -38,34 +38,42 @@ const ListWithFiltersContainer = (props) => {
             case constants.searchConstant:
                 const pattern = /[^a-zа-я0-9]+/gi;
 
-                return props.items.filter(e => e.name.toLowerCase().replace(pattern, '').indexOf(action.value.toLowerCase().replace(pattern, '')) + 1 )
+                return props.items.filter(e => e.name.toLowerCase().replace(pattern, '').indexOf(action.value.toLowerCase().replace(pattern, '')) + 1)
 
-                case constants.progressConstant:
-                    return [...state].sort(function (a, b) {
-                        if (a.progress > b.progress) {
-                            return 1
-                        } else return - 1
-                    })
+            case constants.progressConstant:
+                return [...state].sort(function (a, b) {
+                    if (a.progress > b.progress) {
+                        return 1
+                    } else return - 1
+                })
 
-                    case constants.membersConstant:
-                        return [...state].sort(function (a, b) {
-                            if (a.members > b.members) {
-                                return 1
-                            } else return - 1
-                        })
+            case constants.membersConstant:
+                return [...state].sort(function (a, b) {
+                    if (a.members > b.members) {
+                        return 1
+                    } else return - 1
+                })
+
+            case constants.byDate: 
+                return [...state].sort(function (a, b) {
+                    if (a.date > b.date) {
+                        return 1
+                    } else return - 1
+                })
             default:
                 return state
         }
     }
     const a = "lll"
-    
+
     const filterByAlphabetItemsAZ = () => ({ type: constants.filterByAlphabetItemsConstantAZ })
     const filterByAlphabetItemsZA = () => ({ type: constants.filterByAlphabetItemsConstantZA })
     const filterByDate = (month) => ({ type: constants.filterByDateConstant, month })
     const refreshAllDates = () => ({ type: constants.refreshAllDatesConstant })
     const searcherAC = (value) => ({ type: constants.searchConstant, value })
-    const progressAC = () => ({ type: constants.progressConstant})
-    const membersAC = () => ({ type: constants.membersConstant})
+    const progressAC = () => ({ type: constants.progressConstant })
+    const membersAC = () => ({ type: constants.membersConstant })
+    const dateAC = () => ({ type: constants.byDate })
 
     const [containerState, dispatch] = useReducer(containerReducer, props.items);
 
@@ -75,7 +83,7 @@ const ListWithFiltersContainer = (props) => {
 
     useEffect(() => {
         props.getEventsThunk()
-        
+
     }, []);
 
 
@@ -85,7 +93,7 @@ const ListWithFiltersContainer = (props) => {
                 dispatch={dispatch} filterByDate={filterByDate}
                 refreshAllDates={refreshAllDates} searcherAC={searcherAC}
                 containerState={containerState} progressAC={progressAC}
-                membersAC={membersAC}
+                membersAC={membersAC} dateAC={dateAC}
             />
             <List {...props} containerState={containerState} />
         </div>)

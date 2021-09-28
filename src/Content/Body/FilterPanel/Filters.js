@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates, searcherAC, containerState, progressAC, membersAC }) => {
+const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDate, items, dispatch, refreshAllDates, searcherAC, containerState, progressAC, membersAC, dateAC }) => {
 
     const classes = useStyles();
 
@@ -138,7 +138,7 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                     <FilterByDate dateList={dateList} filterByDate={filterByDate} dispatch={dispatch} refreshAllDates={refreshAllDates} />
                 </div>
                 <div className="fullscreen-filters">
-                    <FilterByStatus dispatch={dispatch} progressAC={progressAC} membersAC={membersAC}/>
+                    <FilterByStatus dispatch={dispatch} progressAC={progressAC} membersAC={membersAC} dateAC={dateAC}/>
                 </div>
             </div>
             <div className="filters-container__bottom">
@@ -147,7 +147,9 @@ const Filters = ({ filterByAlphabetItemsAZ, filterByAlphabetItemsZA, filterByDat
                 <div className="filters-container__bottom__clear"><img src={clear} />Сбросить</div>
             </div>
             <div className="mobile-screen-filter">
-                <MobileFilter dispatch={dispatch} progressAC={progressAC} membersAC={membersAC} filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} filterByAlphabetItemsZA={filterByAlphabetItemsZA}/>
+                <MobileFilter dispatch={dispatch} progressAC={progressAC} 
+                membersAC={membersAC} filterByAlphabetItemsAZ={filterByAlphabetItemsAZ} 
+                filterByAlphabetItemsZA={filterByAlphabetItemsZA} dateAC={dateAC}/>
             </div>
         </div>
     )

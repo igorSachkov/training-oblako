@@ -8,7 +8,9 @@ const constants = {
     refreshAllDatesConstant: `REFRESH-ALL-DATES`,
     searchConstant: `SEARCH`,
     progressConstant: `PROGRESS`,
-    membersConstant: `MEMBERS`
+    membersConstant: `MEMBERS`,
+    byDate: `BY-DATE`,
+
 };
 
 export default constants;

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const FilterByStatus = ({ dispatch,  progressAC, membersAC }) => {
+const FilterByStatus = ({ dispatch,  progressAC, membersAC, dateAC }) => {
 
     const [period, setPeriod] = React.useState('');
 
@@ -51,8 +51,9 @@ const FilterByStatus = ({ dispatch,  progressAC, membersAC }) => {
                         <em>Все</em>
                     </MenuItem>
                     <MenuItem onClick={()=> dispatch(progressAC()) } value={"progress"}>По прогрессу</MenuItem>
-                    <MenuItem onClick={()=> dispatch(membersAC())} value={"members"}>Количество участников</MenuItem>
-
+                    <MenuItem onClick={()=> dispatch(membersAC())} value={"members"}>По количеству участников</MenuItem>
+                    <MenuItem onClick={()=> dispatch(dateAC())} value={"byDate"}>По дате</MenuItem>
+                    
                 </Select>
             </FormControl>
         </div>
